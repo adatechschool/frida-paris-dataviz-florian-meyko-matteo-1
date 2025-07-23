@@ -1,44 +1,21 @@
+const konohaButton = document.getElementById('konoha')
+const hierarchyButton = document.getElementById('hierarchy')
+const clansButton = document.getElementById('clans')
+const kageButton = document.getElementById('kage')
+const anbuButton = document.getElementById('anbu')
+const joninButton = document.getElementById('jonin')
+const chuninButton = document.getElementById('chunin')
+const geninButton = document.getElementById('genin')
+const academyStudentButton = document.getElementById('academyStudent')
+const divContainer = document.getElementById('divContainer')
 
-
-// async function naruto() {
-//     const totalPages = 72;
-
-//     for (let page = 1; page <= totalPages; page++) {
-//         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
-//         let data = await response.json();
-
-//         data.characters.forEach(element => {
-//             // Vérifie si rank et ninjaRegistration existent
-//             if (element.rank && element.rank.ninjaRank) {
-//                 console.log(element.rank.ninjaRank);
-//             } else {
-//                 console.error(`Pas de ninjaRegistration pour : ${element.name || "personnage inconnu"}`);
-//             }
-//         });
-//     }
-// }
-// naruto()
-
- const konohaButton = document.getElementById('konoha')
- const hierarchyButton = document.getElementById('hierarchy')
- const clansButton = document.getElementById('clans')
- const kageButton = document.getElementById('kage')
- const anbuButton = document.getElementById('anbu')
- const joninButton = document.getElementById('jonin')
- const chuninButton = document.getElementById('chunin')
- const geninButton = document.getElementById('genin')
- const academyStudentButton = document.getElementById('academyStudent')
- 
-function showKonoha(){
+function showKonoha() {
    konohaButton.style.display = "none"
    hierarchyButton.style.display = "inline-block"
    clansButton.style.display = "inline-block"
-
-
 }
 
-function hierarchy()
-{
+function hierarchy() {
    hierarchyButton.style.display = "none"
    clansButton.style.display = "none"
    kageButton.style.display = "inline-block"
@@ -49,8 +26,7 @@ function hierarchy()
    academyStudentButton.style.display = "inline-block"
 }
 
-async function kage()
-{
+async function kage() {
    hierarchyButton.style.display = "none"
    clansButton.style.display = "none"
    kageButton.style.display = "none"
@@ -60,25 +36,98 @@ async function kage()
    geninButton.style.display = "none"
    academyStudentButton.style.display = "none"
 
-const totalPages = 72;
+    const titleKage = document.createElement("h1")
+    divContainer.appendChild(titleKage)
+    titleKage.innerHTML = "Hokage"
 
-    for (let page = 1; page <= totalPages; page++) {
-        let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
-        let data = await response.json();
-  
-        data.characters.forEach(element => {
+    const kageDescription = document.createElement("p")
+    divContainer.appendChild(kageDescription)
+    kageDescription.innerHTML = "Kage (影, signifiant littéralement : Ombre) est un titre réservé au chef de l'un des villages cachés des Cinq Grands Pays Ninjas. Ils sont collectivement connus sous le nom de Cinq Kage (五影, Gokage, signifiant littéralement : Cinq Ombres). Un Kage supervise les activités de son village, qu'il s'agisse d'envoyer des ninjas en mission ou de prendre des décisions difficiles concernant la sécurité de sa population. Le Kage d'un village est généralement reconnu comme son ninja le plus puissant. Les Kage sont réputés pour être les meilleurs shinobi du continent."
+
+
+   const totalPages = 72;
+
+   for (let page = 1; page <= totalPages; page++) {
+      let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
+      let data = await response.json()
+
+ 
+      data.characters.forEach(element => {
+
+         if ((element.rank?.ninjaRank?.["Part I"] === "Kage" || element.rank?.ninjaRank?.Gaiden === "Kage" || element.rank?.ninjaRank?.["Part II"] === "Kage" || element.rank?.ninjaRank?.["Boruto Manga"] === "Kage" || element.rank?.ninjaRank?.["Blank Period"] === "Kage") && element.personal.affiliation[0] === "Konohagakure") {
+
           
-             if ((element.rank?.ninjaRank?.["Part I"] === "Kage" || element.rank?.ninjaRank?.Gaiden === "Kage"|| element.rank?.ninjaRank?.["Part II"] === "Kage" || element.rank?.ninjaRank?.["Boruto Manga"] === "Kage"  || element.rank?.ninjaRank?.["Blank Period"] === "Kage") && element.personal.affiliation[0]==="Konohagakure") {
-                 console.log(element.name);
-            } 
-            
-            
-    })
+            const addImgKage = document.createElement("img")
+            divContainer.appendChild(addImgKage)
+            addImgKage.src = element.images[0]
+
+            const addNameKage = document.createElement("button")
+            divContainer.appendChild(addNameKage)
+            addNameKage.innerHTML = element.name
+
+         }
+
+
+      })
+
+   }
+}
+async function anbu() {
+   hierarchyButton.style.display = "none"
+   clansButton.style.display = "none"
+   kageButton.style.display = "none"
+   anbuButton.style.display = "none"
+   joninButton.style.display = "none"
+   chuninButton.style.display = "none"
+   geninButton.style.display = "none"
+   academyStudentButton.style.display = "none"
+   const titleAnbu = document.createElement("h1")
+    divContainer.appendChild(titleAnbu)
+    titleAnbu.innerHTML = "Anbu"
+
+    const anbuDescription = document.createElement("p")
+    divContainer.appendChild(anbuDescription)
+    anbuDescription.innerHTML = ""
+
+
+   const totalPages = 72;
+
+   for (let page = 1; page <= totalPages; page++) {
+      let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
+      let data = await response.json()
+
+ 
+      data.characters.forEach(element => {
+
+         if ((element.rank?.ninjaRank?.["Part I"] === "Anbu" || element.rank?.ninjaRank?.Gaiden === "Anbu" || element.rank?.ninjaRank?.["Part II"] === "Anbu" || element.rank?.ninjaRank?.["Boruto Manga"] === "Anbu" || element.rank?.ninjaRank?.["Blank Period"] === "Anbu") && element.personal.affiliation[0] === "Konohagakure") {
+
+            const addImgAnbu = document.createElement("img")
+            divContainer.appendChild(addImgAnbu)
+            if (element.images[0]) {
+               addImgAnbu.src = element.images[0]
+                
+              } else {
+           
+            addImgAnbu.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+         }
+
+
+            const addNameAnbu = document.createElement("button")
+            divContainer.appendChild(addNameAnbu)
+            addNameAnbu.innerHTML = element.name
+
+         }
+
+
+      })
+
+   }
 
 }
-}
-function anbu()
-{
+
+
+
+function jonin() {
    hierarchyButton.style.display = "none"
    clansButton.style.display = "none"
    kageButton.style.display = "none"
@@ -89,8 +138,17 @@ function anbu()
    academyStudentButton.style.display = "none"
 }
 
-function jonin()
-{
+function chunin() {
+   hierarchyButton.style.display = "none"
+   clansButton.style.display = "none"
+   kageButton.style.display = "none"
+   anbuButton.style.display = "none"
+   joninButton.style.display = "none"
+   chuninButton.style.display = "none"
+   geninButton.style.display = "none"
+   academyStudentButton.style.display = "none"
+}
+function genin() {
    hierarchyButton.style.display = "none"
    clansButton.style.display = "none"
    kageButton.style.display = "none"
@@ -101,31 +159,7 @@ function jonin()
    academyStudentButton.style.display = "none"
 }
 
-function chunin()
-{
-   hierarchyButton.style.display = "none"
-   clansButton.style.display = "none"
-   kageButton.style.display = "none"
-   anbuButton.style.display = "none"
-   joninButton.style.display = "none"
-   chuninButton.style.display = "none"
-   geninButton.style.display = "none"
-   academyStudentButton.style.display = "none"
-}
-function genin()
-{
-   hierarchyButton.style.display = "none"
-   clansButton.style.display = "none"
-   kageButton.style.display = "none"
-   anbuButton.style.display = "none"
-   joninButton.style.display = "none"
-   chuninButton.style.display = "none"
-   geninButton.style.display = "none"
-   academyStudentButton.style.display = "none"
-}
-
-function academyStudent()
-{
+function academyStudent() {
    hierarchyButton.style.display = "none"
    clansButton.style.display = "none"
    kageButton.style.display = "none"
