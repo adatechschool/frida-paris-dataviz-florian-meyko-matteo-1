@@ -9,6 +9,59 @@ const geninButton = document.getElementById('genin')
 const academyStudentButton = document.getElementById('academyStudent')
 const divContainer = document.getElementById('divContainer')
 
+const uzumakiButton = document.getElementById('uzumaki')
+const hyugaButton = document.getElementById('hyuga')
+const uchiwaButton = document.getElementById('uchiwa')
+const senjuButton = document.getElementById('senju')
+const sarutobiButton = document.getElementById('sarutobi')
+const aburameButton = document.getElementById('aburame')
+const inuzukaButton = document.getElementById('inuzuka')
+const yamanakaButton = document.getElementById('yamanaka')
+const naraButton = document.getElementById('nara')
+const akimichiButton = document.getElementById('akimichi')
+const kuramaButton = document.getElementById('kurama')
+
+async function searchCharacters(firstName){
+   const totalPages = 72;
+
+   for (let page = 1; page <= totalPages; page++) {
+      let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`)
+      let data = await response.json()
+
+ 
+      data.characters.forEach(element => {
+
+        if(element.name === firstName )
+        {
+         console.log(element.id)
+        }
+
+      })
+
+   }
+}
+async function ViewClans(clansName){
+   const totalPages = 72;
+
+   for (let page = 1; page <= totalPages; page++) {
+      let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`)
+      let data = await response.json()
+
+ 
+      data.characters.forEach(element => {
+
+        if(element.personal?.clan === clansName )
+        {
+         console.log(`${element.name} ${element.id}`)
+        }
+
+      })
+
+   }
+}
+
+
+
 function showKonoha() {
    konohaButton.style.display = "none"
    hierarchyButton.style.display = "inline-block"
@@ -275,7 +328,7 @@ async function genin() {
 
             const addNameGenin = document.createElement("button")
             divContainer.appendChild(addNameGenin)
-            addNameGenin.innerHTML = element.name
+            addNameGenin.innerHTML = element.id
 
          }
       })
@@ -332,5 +385,81 @@ async function academyStudent() {
          }
       })
    }
+}
+
+function clans() {
+
+   hierarchyButton.style.display = "none"
+   clansButton.style.display = "none"
+   uzumakiButton.style.display = "inline-block"
+   hyugaButton.style.display = "inline-block"
+   uchiwaButton.style.display = "inline-block"
+   senjuButton.style.display = "inline-block"
+   sarutobiButton.style.display = "inline-block"
+   aburameButton.style.display = "inline-block"
+   inuzukaButton.style.display = "inline-block"
+   yamanakaButton.style.display = "inline-block"
+   naraButton.style.display = "inline-block"
+   akimichiButton.style.display = "inline-block"
+   kuramaButton.style.display = "inline-block"
+
+}
+
+async function uzumaki()
+{
+   uzumakiButton.style.display = "none"
+   hyugaButton.style.display = "none"
+   uchiwaButton.style.display = "none"
+   senjuButton.style.display = "none"
+   sarutobiButton.style.display = "none"
+   aburameButton.style.display = "none"
+   inuzukaButton.style.display = "none"
+   yamanakaButton.style.display = "none"
+   naraButton.style.display = "none"
+   akimichiButton.style.display = "none"
+   kuramaButton.style.display = "none"
+
+
+    const uzumakiTitle = document.createElement("h1")
+    divContainer.appendChild(uzumakiTitle)
+    uzumakiTitle.innerHTML = "Uzumaki"
+
+    const uzumakiDescription = document.createElement("p")
+    divContainer.appendChild(uzumakiDescription)
+    uzumakiDescription.innerHTML = "Le Clan Uzumaki (うずまき一族, Uzumaki Ichizoku) était le clan prédominant du village caché d'Uzushio. Ce clan avait un lointain lien de parenté avec le clan Senju avec lequel ils ont toujours entretenu de bonnes relations. Ils furent décimés lors des Grandes Guerres Ninjas en même temps que le Pays des Tourbillons. Les rares survivants s'exilèrent à travers le monde. Depuis, les ninjas du village de Konoha arborent le symbole Uzumaki sur leurs uniformes, en mémoire de leurs amis défunts."
+
+
+   const totalPages = 72;
+
+   for (let page = 1; page <= totalPages; page++) {
+      let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
+      let data = await response.json()
+
+ 
+      data.characters.forEach(element => {
+
+         if (element.personal.clan === "Uzumaki") {
+
+            const addImgUzumaki = document.createElement("img")
+            divContainer.appendChild(addImgUzumaki)
+            if (element.images[0]) {
+               addImgUzumaki.src = element.images[0]
+                
+              } else {
+           
+            addImgUzumaki.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+         }
+
+
+            const addNameUzumaki = document.createElement("button")
+            divContainer.appendChild(addNameUzumaki)
+            addNameUzumaki.innerHTML = element.name
+
+         }
+
+      })
+
+   }
+
 }
 
