@@ -66,6 +66,7 @@ function showKonoha() {
    konohaButton.style.display = "none"
    hierarchyButton.style.display = "inline-block"
    clansButton.style.display = "inline-block"
+   
 }
 
 function hierarchy() {
@@ -113,10 +114,18 @@ async function kage() {
             const addImgKage = document.createElement("img")
             divContainer.appendChild(addImgKage)
             addImgKage.src = element.images[0]
+            addImgKage.width = 200;
+
+            if(element.name === "Naruto Uzumaki")
+            {
+               addImgKage.src = "Naruto.webp"
+               addImgKage.width = 150;
+            }
 
             const addNameKage = document.createElement("button")
             divContainer.appendChild(addNameKage)
             addNameKage.innerHTML = element.name
+            
 
          }
       })
@@ -157,10 +166,12 @@ async function anbu() {
             divContainer.appendChild(addImgAnbu)
             if (element.images[0]) {
                addImgAnbu.src = element.images[0]
+              addImgAnbu.width = 200;
                 
               } else {
            
             addImgAnbu.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+            addImgAnbu.width = 150;
          }
 
 
@@ -213,13 +224,16 @@ async function jonin() {
             divContainer.appendChild(addImgJonin)
              if (element.images[0]) {
           addImgJonin.src = element.images[0]
+          addImgJonin.width = 200;
                 
                }  else  {
            
              addImgJonin.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+             addImgJonin.width = 150;
           }
           if(element.name === "Jiraiya") {
                   addImgJonin.src = "Jiraiya.PNG"
+                  addImgJonin.width = 150;
 
                }
 
@@ -268,10 +282,12 @@ async function chunin() {
             divContainer.appendChild(addImgChunin)
             if (element.images[0]) {
                addImgChunin.src = element.images[0]
+               addImgChunin.width = 200;
                 
               } else {
            
             addImgChunin.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+            addImgChunin.width = 150;
          }
 
 
@@ -319,16 +335,18 @@ async function genin() {
             divContainer.appendChild(addImgGenin)
             if (element.images[0]) {
                addImgGenin.src = element.images[0]
+               addImgGenin.width = 200;
                 
               } else {
            
             addImgGenin.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+            addImgGenin.width = 150;
          }
 
 
             const addNameGenin = document.createElement("button")
             divContainer.appendChild(addNameGenin)
-            addNameGenin.innerHTML = element.id
+            addNameGenin.innerHTML = element.name
 
          }
       })
@@ -371,10 +389,12 @@ async function academyStudent() {
             divContainer.appendChild(addImgAcademyStudent)
             if (element.images[0]) {
                addImgAcademyStudent.src = element.images[0]
+               addImgAcademyStudent.width = 200;
                 
               } else {
            
             addImgAcademyStudent.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+            addImgAcademyStudent.width = 150;
          }
 
 
@@ -444,10 +464,12 @@ async function uzumaki()
             divContainer.appendChild(addImgUzumaki)
             if (element.images[0]) {
                addImgUzumaki.src = element.images[0]
+               addImgUzumaki.width = 200;
                 
               } else {
            
             addImgUzumaki.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+            addImgUzumaki.width = 150;
          }
 
 
@@ -463,3 +485,61 @@ async function uzumaki()
 
 }
 
+async function hyuga()
+{
+   uzumakiButton.style.display = "none"
+   hyugaButton.style.display = "none"
+   uchiwaButton.style.display = "none"
+   senjuButton.style.display = "none"
+   sarutobiButton.style.display = "none"
+   aburameButton.style.display = "none"
+   inuzukaButton.style.display = "none"
+   yamanakaButton.style.display = "none"
+   naraButton.style.display = "none"
+   akimichiButton.style.display = "none"
+   kuramaButton.style.display = "none"
+
+
+    const hyugaTitle = document.createElement("h1")
+    divContainer.appendChild(hyugaTitle)
+    hyugaTitle.innerHTML = "Hyuga"
+
+    const hyugaDescription = document.createElement("p")
+    divContainer.appendChild(hyugaDescription)
+    hyugaDescription.innerHTML = "Le Clan Hyûga est l’un des plus anciens et puissants clans de Konoha. Tous ses membres possèdent le Byakugan, un dôjutsu leur offrant une vision à 360°, la perception du système de chakra et la capacité de voir à travers les objets sur de longues distances.<br><br>Le clan est divisé en deux branches :<br><br>•	La Sôke (branche principale), qui dirige.<br>•	La Bunke (branche secondaire), chargée de protéger la Sôke.<br><br>Les membres de la Bunke portent un sceau maudit permettant à la Sôke de les contrôler et de protéger les secrets du Byakugan, même après leur mort.<br><br>Les Hyûga pratiquent le Jûken (Poing Souple), un art martial utilisant le Byakugan pour bloquer la circulation du chakra chez l’adversaire.<br>Les techniques les plus puissantes sont normalement réservées à la Sôke, mais Neji Hyûga, membre de la Bunke, les a apprises seul, devenant un prodigieux ninja."
+
+   const totalPages = 72;
+
+   for (let page = 1; page <= totalPages; page++) {
+      let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
+      let data = await response.json()
+
+ 
+      data.characters.forEach(element => {
+
+         if (element.personal.clan === "Hyūga") {
+
+            const addImgHyuga = document.createElement("img")
+            divContainer.appendChild(addImgHyuga)
+            if (element.images[0]) {
+               addImgHyuga.src = element.images[0]
+               addImgHyuga.width = 200;
+                
+              } else {
+           
+            addImgHyuga.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
+            addImgHyuga.width = 150;
+         }
+
+
+            const addNameHyuga = document.createElement("button")
+            divContainer.appendChild(addNameHyuga)
+            addNameHyuga.innerHTML = element.name
+
+         }
+
+      })
+
+   }
+
+}
