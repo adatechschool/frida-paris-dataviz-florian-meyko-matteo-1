@@ -3,3 +3,21 @@
 https://excalidraw.com/#json=zxAqg3wTdvNbnzbrO4CCr,obyJdjRZdVGwpU-Ses8zmQ
 
 https://dattebayo-api.onrender.com/characters
+
+
+JOURNAL DE BORD
+
+
+Jeudi 24 juillet 2025
+
+taches :
+
+> 
+>
+>
+
+objectifs :
+
+>
+>
+>
