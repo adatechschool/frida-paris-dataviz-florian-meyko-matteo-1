@@ -21,7 +21,7 @@ async function uzumaki()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Uzumaki") {
+         if (element.personal?.clan === "Uzumaki" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Uzumaki"))) {
 
             const addImgUzumaki = document.createElement("img")
             divContainer.appendChild(addImgUzumaki)
@@ -34,7 +34,11 @@ async function uzumaki()
             addImgUzumaki.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png"
             addImgUzumaki.width = 150;
          }
-
+         if(element.name === "Himawari Uzumaki")
+         {
+            addImgUzumaki.src = "images/himawari.png"
+            addImgUzumaki.width = 150;
+         }
 
             const addNameUzumaki = document.createElement("button")
             divContainer.appendChild(addNameUzumaki)

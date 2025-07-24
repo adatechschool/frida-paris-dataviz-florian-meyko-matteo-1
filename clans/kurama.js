@@ -19,7 +19,7 @@ async function kurama()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Kurama") {
+         if (element.personal?.clan === "Kurama" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Kurama"))) {
 
             const addImgKurama = document.createElement("img")
             divContainer.appendChild(addImgKurama)

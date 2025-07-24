@@ -19,7 +19,7 @@ async function akimichi()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Akimichi") {
+         if (element.personal?.clan === "Akimichi" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Akimichi"))) {
 
             const addImgAkimichi = document.createElement("img")
             divContainer.appendChild(addImgAkimichi)

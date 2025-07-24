@@ -20,7 +20,19 @@ hideButtonsHierarchy()
  
       data.characters.forEach(element => {
 
-         if ((element.rank?.ninjaRank?.["Part I"] === "Genin" || element.rank?.ninjaRank?.Gaiden === "Genin" || element.rank?.ninjaRank?.["Part II"] === "Genin" || element.rank?.ninjaRank?.["Boruto Manga"] === "Genin" || element.rank?.ninjaRank?.["Blank Period"] === "Genin") && element.personal.affiliation[0] === "Konohagakure") {
+           if (
+  (
+    element.rank?.ninjaRank?.["Part I"] === "Genin" ||
+    element.rank?.ninjaRank?.Gaiden === "Genin" ||
+     element.rank?.ninjaRank?.["Part II"] === "Genin" ||
+     element.rank?.ninjaRank?.["Boruto Manga"] === "Genin" ||
+     element.rank?.ninjaRank?.["Blank Period"] === "Genin"
+  ) &&
+  (
+    element.personal?.affiliation === "Konohagakure" || 
+    (Array.isArray( element.personal?.affiliation) &&  element.personal?.affiliation.includes("Konohagakure"))
+  )
+) {
 
             const addImgGenin = document.createElement("img")
             divContainer.appendChild(addImgGenin)

@@ -18,7 +18,19 @@ async function anbu() {
  
       data.characters.forEach(element => {
 
-         if ((element.rank?.ninjaRank?.["Part I"] === "Anbu" || element.rank?.ninjaRank?.Gaiden === "Anbu" || element.rank?.ninjaRank?.["Part II"] === "Anbu" || element.rank?.ninjaRank?.["Boruto Manga"] === "Anbu" || element.rank?.ninjaRank?.["Blank Period"] === "Anbu") && element.personal.affiliation[0] === "Konohagakure") {
+        if (
+  (
+    element.rank?.ninjaRank?.["Part I"] === "Anbu" ||
+    element.rank?.ninjaRank?.Gaiden === "Anbu" ||
+     element.rank?.ninjaRank?.["Part II"] === "Anbu" ||
+     element.rank?.ninjaRank?.["Boruto Manga"] === "Anbu" ||
+     element.rank?.ninjaRank?.["Blank Period"] === "Anbu"
+  ) &&
+  (
+    element.personal?.affiliation === "Konohagakure" || 
+    (Array.isArray( element.personal?.affiliation) &&  element.personal?.affiliation.includes("Konohagakure"))
+  )
+)  {
 
             const addImgAnbu = document.createElement("img")
             divContainer.appendChild(addImgAnbu)

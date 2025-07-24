@@ -19,7 +19,7 @@ async function nara()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Nara") {
+         if (element.personal?.clan === "Nara"  ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Nara")) ) {
 
             const addImgNara = document.createElement("img")
             divContainer.appendChild(addImgNara)
@@ -41,6 +41,7 @@ async function nara()
          }
 
       })
+     
 
    }
 

@@ -19,7 +19,7 @@ async function senju()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Senju") {
+         if (element.personal?.clan === "Senju" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Senju"))) {
 
             const addImgSenju = document.createElement("img")
             divContainer.appendChild(addImgSenju)

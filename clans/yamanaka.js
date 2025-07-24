@@ -19,7 +19,7 @@ async function yamanaka()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Yamanaka") {
+         if (element.personal?.clan === "Yamanaka" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Yamanaka"))) {
 
             const addImgYamanaka = document.createElement("img")
             divContainer.appendChild(addImgYamanaka)

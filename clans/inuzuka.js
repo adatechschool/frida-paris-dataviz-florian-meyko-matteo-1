@@ -18,7 +18,7 @@ hideButtonsClans()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Inuzuka") {
+         if (element.personal?.clan === "Inuzuka" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Inuzuka"))) {
 
             const addImgInuzuka = document.createElement("img")
             divContainer.appendChild(addImgInuzuka)
