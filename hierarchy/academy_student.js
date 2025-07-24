@@ -21,7 +21,19 @@ async function academyStudent() {
  
       data.characters.forEach(element => {
 
-         if ((element.rank?.ninjaRank?.["Part I"] === "Academy Student" || element.rank?.ninjaRank?.Gaiden === "Academy Student" || element.rank?.ninjaRank?.["Part II"] === "Academy Student" || element.rank?.ninjaRank?.["Boruto Manga"] === "Academy Student" || element.rank?.ninjaRank?.["Blank Period"] === "Academy Student") && element.personal.affiliation[0] === "Konohagakure") {
+if (
+  (
+    element.rank?.ninjaRank?.["Part I"] === "Academy Student" ||
+    element.rank?.ninjaRank?.Gaiden === "Academy Student" ||
+     element.rank?.ninjaRank?.["Part II"] === "Academy Student" ||
+     element.rank?.ninjaRank?.["Boruto Manga"] === "Academy Student" ||
+     element.rank?.ninjaRank?.["Blank Period"] === "Academy Student"
+  ) &&
+  (
+    element.personal?.affiliation === "Konohagakure" || 
+    (Array.isArray( element.personal?.affiliation) &&  element.personal?.affiliation.includes("Konohagakure"))
+  )
+){
 
             const addImgAcademyStudent = document.createElement("img")
             divContainer.appendChild(addImgAcademyStudent)
@@ -38,7 +50,7 @@ async function academyStudent() {
 
             const addNameAcademyStudent = document.createElement("button")
             divContainer.appendChild(addNameAcademyStudent)
-            addNameAcademyStudent.innerHTML = element.name
+            addNameAcademyStudent.innerHTML = element.id
 
          }
       })

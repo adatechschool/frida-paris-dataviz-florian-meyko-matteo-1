@@ -20,7 +20,19 @@ async function chunin() {
 
       data.characters.forEach(element => {
 
-         if ((element.rank?.ninjaRank?.["Part I"] === "Chūnin" || element.rank?.ninjaRank?.Gaiden === "Chūnin" || element.rank?.ninjaRank?.["Part II"] === "Chūnin" || element.rank?.ninjaRank?.["Boruto Manga"] === "Chūnin" || element.rank?.ninjaRank?.["Blank Period"] === "Chūnin") && element.personal.affiliation[0] === "Konohagakure") {
+          if (
+  (
+    element.rank?.ninjaRank?.["Part I"] === "Chūnin" ||
+    element.rank?.ninjaRank?.Gaiden === "Chūnin" ||
+     element.rank?.ninjaRank?.["Part II"] === "Chūnin" ||
+     element.rank?.ninjaRank?.["Boruto Manga"] === "Chūnin" ||
+     element.rank?.ninjaRank?.["Blank Period"] === "Chūnin"
+  ) &&
+  (
+    element.personal?.affiliation === "Konohagakure" || 
+    (Array.isArray( element.personal?.affiliation) &&  element.personal?.affiliation.includes("Konohagakure"))
+  )
+) {
 
             const addImgChunin = document.createElement("img")
             divContainer.appendChild(addImgChunin)

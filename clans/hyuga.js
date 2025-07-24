@@ -5,7 +5,7 @@ async function hyuga()
 
     const hyugaTitle = document.createElement("h1")
     divContainer.appendChild(hyugaTitle)
-    hyugaTitle.innerHTML = "Hyuga"
+    hyugaTitle.innerHTML = "Hyūga"
 
     const hyugaDescription = document.createElement("p")
     divContainer.appendChild(hyugaDescription)
@@ -20,7 +20,7 @@ async function hyuga()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Hyūga") {
+         if (element.personal?.clan === "Hyūga" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Hyūga"))) {
 
             const addImgHyuga = document.createElement("img")
             divContainer.appendChild(addImgHyuga)

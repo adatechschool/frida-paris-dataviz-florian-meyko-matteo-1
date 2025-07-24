@@ -19,7 +19,7 @@ async function uchiha()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Uchiha") {
+         if (element.personal?.clan === "Uchiha" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Uchiha"))) {
 
             const addImgUchiha = document.createElement("img")
             divContainer.appendChild(addImgUchiha)

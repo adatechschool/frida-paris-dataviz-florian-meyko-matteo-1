@@ -19,7 +19,7 @@ async function sarutobi()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Sarutobi") {
+         if (element.personal?.clan === "Sarutobi" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Sarutobi"))) {
 
             const addImgSarutobi = document.createElement("img")
             divContainer.appendChild(addImgSarutobi)

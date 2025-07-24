@@ -19,7 +19,7 @@ async function aburame()
  
       data.characters.forEach(element => {
 
-         if (element.personal.clan === "Aburame") {
+         if (element.personal?.clan === "Aburame" ||(Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Aburame"))) {
 
             const addImgAburame = document.createElement("img")
             divContainer.appendChild(addImgAburame)

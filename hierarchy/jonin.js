@@ -19,7 +19,19 @@ async function jonin() {
  
       data.characters.forEach(element => {
 
-         if ((element.rank?.ninjaRank?.["Part I"] === "Jōnin" || element.rank?.ninjaRank?.Gaiden === "Jōnin" || element.rank?.ninjaRank?.["Part II"] === "Jōnin" || element.rank?.ninjaRank?.["Boruto Manga"] === "Jōnin" || element.rank?.ninjaRank?.["Blank Period"] === "Jōnin") && element.personal.affiliation[0] === "Konohagakure") {
+        if (
+  (
+    element.rank?.ninjaRank?.["Part I"] === "Jōnin" ||
+    element.rank?.ninjaRank?.Gaiden === "Jōnin" ||
+     element.rank?.ninjaRank?.["Part II"] === "Jōnin" ||
+     element.rank?.ninjaRank?.["Boruto Manga"] === "Jōnin" ||
+     element.rank?.ninjaRank?.["Blank Period"] === "Jōnin"
+  ) &&
+  (
+    element.personal?.affiliation === "Konohagakure" || 
+    (Array.isArray( element.personal?.affiliation) &&  element.personal?.affiliation.includes("Konohagakure"))
+  )
+){
 
             const addImgJonin = document.createElement("img")
             divContainer.appendChild(addImgJonin)
