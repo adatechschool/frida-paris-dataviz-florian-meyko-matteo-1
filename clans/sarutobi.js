@@ -35,14 +35,14 @@ async function sarutobi() {
                 } else {
                     addImgSarutobi.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png";
                     addImgSarutobi.width = 150;
-                }
+                };
 
                 const addNameSarutobi = document.createElement("button");
                 divContainer.appendChild(addNameSarutobi);
                 addNameSarutobi.innerHTML = element.name;
 
-            }
+            };
 
-        })
-    }
-}
+        });
+    };
+};

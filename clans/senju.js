@@ -36,15 +36,15 @@ async function senju() {
                 } else {
                     addImgSenju.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png";
                     addImgSenju.width = 150;
-                }
+                };
 
                 const addNameSenju = document.createElement("button");
                 divContainer.appendChild(addNameSenju);
                 addNameSenju.innerHTML = element.name;
 
-            }
+            };
 
-        })
-    }
-}
+        });
+    };
+};
 

@@ -7,7 +7,6 @@ const joninButton = document.getElementById("jonin");
 const chuninButton = document.getElementById("chunin");
 const geninButton = document.getElementById("genin");
 const academyStudentButton = document.getElementById("academyStudent");
-const divContainer = document.getElementById("divContainer");
 
 const uzumakiButton = document.getElementById("uzumaki");
 const hyugaButton = document.getElementById("hyuga");
@@ -20,6 +19,8 @@ const yamanakaButton = document.getElementById("yamanaka");
 const naraButton = document.getElementById("nara");
 const akimichiButton = document.getElementById("akimichi");
 const kuramaButton = document.getElementById("kurama");
+
+const divContainer = document.getElementById("divContainer");
 
 
 function hideButtonsClans() {
@@ -36,7 +37,8 @@ function hideButtonsClans() {
     akimichiButton.style.display = "none";
     kuramaButton.style.display = "none";
 
-}
+};
+
 
 function hideButtonsHierarchy() {
 
@@ -49,7 +51,7 @@ function hideButtonsHierarchy() {
     geninButton.style.display = "none";
     academyStudentButton.style.display = "none";
 
-}
+};
 
 
 async function searchCharacters(firstName) {
@@ -62,16 +64,19 @@ async function searchCharacters(firstName) {
         let data = await response.json();
 
         data.characters.forEach(element => {
+
             if (element.name === firstName) {
                 console.log(element.id);
-            }
-        })
+            };
 
-    }
-}
+        });
+
+    };
+};
 
 
 async function ViewClans(clansName) {
+
     const totalPages = 72;
 
     for (let page = 1; page <= totalPages; page++) {
@@ -80,13 +85,16 @@ async function ViewClans(clansName) {
         let data = await response.json();
 
         data.characters.forEach(element => {
+
             if (element.personal?.clan === clansName) {
                 console.log(`${element.name} ${element.id}`);
-            }
-        })
+            };
 
-    }
-}
+        });
+
+    };
+
+};
 
 
 function showKonoha() {
@@ -95,7 +103,8 @@ function showKonoha() {
     hierarchyButton.style.display = "inline-block";
     clansButton.style.display = "inline-block";
 
-}
+};
+
 
 function hierarchy() {
 
@@ -108,7 +117,8 @@ function hierarchy() {
     geninButton.style.display = "inline-block";
     academyStudentButton.style.display = "inline-block";
 
-}
+};
+
 
 function clans() {
 
@@ -126,4 +136,5 @@ function clans() {
     akimichiButton.style.display = "inline-block";
     kuramaButton.style.display = "inline-block";
 
-}
+};
+

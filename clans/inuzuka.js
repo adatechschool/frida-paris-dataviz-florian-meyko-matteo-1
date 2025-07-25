@@ -39,15 +39,15 @@ async function inuzuka() {
                 } else {
                     addImgInuzuka.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png";
                     addImgInuzuka.width = 150;
-                }
+                };
 
                 const addNameInuzuka = document.createElement("button");
                 divContainer.appendChild(addNameInuzuka);
                 addNameInuzuka.innerHTML = element.name;
 
-            }
+            };
 
-        })
-    }
-}
+        });
+    };
+};
 

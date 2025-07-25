@@ -37,14 +37,15 @@ async function kurama() {
                 } else {
                     addImgKurama.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png";
                     addImgKurama.width = 150;
-                }
+                };
 
                 const addNameKurama = document.createElement("button");
                 divContainer.appendChild(addNameKurama);
                 addNameKurama.innerHTML = element.name;
 
-            }
+            };
 
-        })
-    }
-}
+        });
+    };
+};
+

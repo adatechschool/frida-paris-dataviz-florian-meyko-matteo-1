@@ -36,15 +36,15 @@ async function akimichi() {
                 } else {
                     addImgAkimichi.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png";
                     addImgAkimichi.width = 150;
-                }
+                };
 
                 const addNameAkimichi = document.createElement("button");
                 divContainer.appendChild(addNameAkimichi);
                 addNameAkimichi.innerHTML = element.name;
 
-            }
+            };
 
-        })
-    }
-}
+        });
+    };
+};
 

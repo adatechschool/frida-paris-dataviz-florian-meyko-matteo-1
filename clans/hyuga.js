@@ -40,15 +40,15 @@ async function hyuga() {
                 } else {
                     addImgHyuga.src = "https://userscontent2.emaze.com/images/75a4793f-4676-455c-967d-ae7543a8c301/723ba67d-d3cb-42e0-a9a6-400d44758491image2.png";
                     addImgHyuga.width = 150;
-                }
+                };
 
                 const addNameHyuga = document.createElement("button");
                 divContainer.appendChild(addNameHyuga);
                 addNameHyuga.innerHTML = element.name;
 
-            }
+            };
 
-        })
-    }
-}
+        });
+    };
+};
 
