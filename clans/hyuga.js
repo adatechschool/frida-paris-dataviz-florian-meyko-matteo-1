@@ -21,6 +21,7 @@ async function hyuga() {
     const totalPages = 72;
 
     for (let page = 1; page <= totalPages; page++) {
+        
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
 
