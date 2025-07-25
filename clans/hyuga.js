@@ -46,6 +46,12 @@ async function hyuga() {
                 divContainer.appendChild(addNameHyuga);
                 addNameHyuga.innerHTML = element.name;
 
+                addNameHyuga.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
             };
 
         });

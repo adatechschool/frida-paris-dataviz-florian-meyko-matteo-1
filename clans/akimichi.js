@@ -42,6 +42,12 @@ async function akimichi() {
                 divContainer.appendChild(addNameAkimichi);
                 addNameAkimichi.innerHTML = element.name;
 
+                addNameAkimichi.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
             };
 
         });

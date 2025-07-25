@@ -18,6 +18,7 @@ async function jonin() {
     const totalPages = 72;
 
     for (let page = 1; page <= totalPages; page++) {
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
@@ -67,7 +68,14 @@ async function jonin() {
                 
                 const addNameJonin = document.createElement("button");
                 divContainer.appendChild(addNameJonin);
-                addNameJonin.innerHTML = `${element.name}  ${element.id}`;
+                addNameJonin.innerHTML = element.name;
+
+                addNameJonin.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
 
             };
 

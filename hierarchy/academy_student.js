@@ -64,6 +64,13 @@ async function academyStudent() {
                 divContainer.appendChild(addNameAcademyStudent);
                 addNameAcademyStudent.innerHTML = element.id;
 
+                addNameAcademyStudent.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

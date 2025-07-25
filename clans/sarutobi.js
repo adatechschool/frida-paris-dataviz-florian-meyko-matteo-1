@@ -41,6 +41,13 @@ async function sarutobi() {
                 divContainer.appendChild(addNameSarutobi);
                 addNameSarutobi.innerHTML = element.name;
 
+                addNameSarutobi.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

@@ -44,6 +44,12 @@ async function aburame() {
                 divContainer.appendChild(addNameAburame);
                 addNameAburame.innerHTML = element.name;
 
+                addNameAburame.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                }); 
             };
 
         });

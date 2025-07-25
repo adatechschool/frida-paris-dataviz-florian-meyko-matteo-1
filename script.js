@@ -21,6 +21,11 @@ const akimichiButton = document.getElementById("akimichi");
 const kuramaButton = document.getElementById("kurama");
 
 const divContainer = document.getElementById("divContainer");
+const famillyContainer = document.getElementById("famillyContainer")
+const infoContainer = document.getElementById("infoContainer")
+
+let stopJonin = false;
+
 
 
 function hideButtonsClans() {
@@ -138,3 +143,45 @@ function clans() {
 
 };
 
+function createDescription(element) {
+    stopJonin = true;
+     divContainer.innerHTML = "";
+     
+
+
+                    const charaDes = document.createElement("h1");
+                    divContainer.appendChild(charaDes);
+                    charaDes.innerHTML = element.name;
+
+                    const charaImg = document.createElement("img");
+                    divContainer.appendChild(charaImg);
+                    charaImg.src = element.images[0];
+                    charaImg.width = 200;
+
+                    
+                    for (let i in element.family){
+                            const family = document.createElement("li");
+                            famillyContainer.appendChild(family);
+                            family.innerHTML = ` ${i} : ${element.family[i]}`;
+                    }
+                    
+                    const bloodType = document.createElement("li");
+                    infoContainer.appendChild(bloodType);
+                    bloodType.innerHTML = ` Blood Type : ${element.personal.bloodType}`;
+
+                    const ninjaId = document.createElement("li");
+                    infoContainer.appendChild(ninjaId);
+                    ninjaId.innerHTML = ` Ninja Registration : ${element.rank.ninjaRegistration}`;
+
+                    const firstTime = document.createElement("li");
+                    infoContainer.appendChild(firstTime);
+                    firstTime.innerHTML = `First appearance on paper  : ${element.debut.manga}`;
+
+                    const firstTimeTv = document.createElement("li");
+                    infoContainer.appendChild(firstTimeTv);
+                    firstTimeTv.innerHTML = `First appearance on screen : ${element.debut.anime}`;
+
+
+                    
+
+}

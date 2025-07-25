@@ -73,6 +73,13 @@ async function genin() {
                 divContainer.appendChild(addNameGenin);
                 addNameGenin.innerHTML = element.name;
 
+                addNameGenin.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

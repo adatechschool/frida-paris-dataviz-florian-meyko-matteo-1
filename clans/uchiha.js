@@ -41,6 +41,13 @@ async function uchiha() {
                 divContainer.appendChild(addNameUchiha);
                 addNameUchiha.innerHTML = element.name;
 
+                addNameUchiha.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

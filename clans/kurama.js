@@ -43,6 +43,12 @@ async function kurama() {
                 divContainer.appendChild(addNameKurama);
                 addNameKurama.innerHTML = element.name;
 
+                addNameKurama.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
             };
 
         });

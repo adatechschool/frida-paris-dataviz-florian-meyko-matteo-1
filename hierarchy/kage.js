@@ -66,10 +66,8 @@ async function kage() {
 
                 addNameKage.addEventListener("click", () => {
 
-                    divContainer.innerHTML = "";
-                    const test = document.createElement("h1");
-                    divContainer.appendChild(test);
-                    test.innerHTML = element.name;
+                createDescription(element)
+                    
 
                 });
 

@@ -41,6 +41,13 @@ async function yamanaka() {
                 divContainer.appendChild(addNameYamanaka);
                 addNameYamanaka.innerHTML = element.name;
 
+                addNameYamanaka.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

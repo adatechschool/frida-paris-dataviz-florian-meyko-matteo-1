@@ -48,6 +48,13 @@ async function uzumaki() {
                 divContainer.appendChild(addNameUzumaki);
                 addNameUzumaki.innerHTML = element.name;
 
+                addNameUzumaki.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

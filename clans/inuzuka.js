@@ -45,6 +45,12 @@ async function inuzuka() {
                 divContainer.appendChild(addNameInuzuka);
                 addNameInuzuka.innerHTML = element.name;
 
+                addNameInuzuka.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
             };
 
         });

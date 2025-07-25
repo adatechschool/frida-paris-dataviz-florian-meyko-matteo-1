@@ -63,6 +63,13 @@ async function chunin() {
                 divContainer.appendChild(addNameChunin);
                 addNameChunin.innerHTML = element.name;
 
+                addNameChunin.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

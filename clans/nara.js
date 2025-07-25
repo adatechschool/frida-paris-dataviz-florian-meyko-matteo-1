@@ -42,6 +42,12 @@ async function nara() {
                 divContainer.appendChild(addNameNara);
                 addNameNara.innerHTML = element.name;
 
+                addNameNara.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
             };
 
         });

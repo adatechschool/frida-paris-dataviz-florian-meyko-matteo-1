@@ -64,6 +64,13 @@ async function anbu() {
                 divContainer.appendChild(addNameAnbu);
                 addNameAnbu.innerHTML = element.name;
 
+                addNameAnbu.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });

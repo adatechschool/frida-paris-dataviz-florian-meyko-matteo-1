@@ -42,6 +42,13 @@ async function senju() {
                 divContainer.appendChild(addNameSenju);
                 addNameSenju.innerHTML = element.name;
 
+                addNameSenju.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
             };
 
         });
