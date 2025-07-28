@@ -21,7 +21,8 @@ async function senju() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
+       
         data.characters.forEach(element => {
 
             if (element.personal?.clan === "Senju" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Senju"))) {
@@ -40,7 +41,10 @@ async function senju() {
 
                 const addNameSenju = document.createElement("button");
                 divContainer.appendChild(addNameSenju);
+                addNameSenju.className = "decoButton"
                 addNameSenju.innerHTML = element.name;
+                
+                changeStyleButton()
 
                 addNameSenju.addEventListener("click", () => {
 

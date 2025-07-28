@@ -20,7 +20,8 @@ async function uchiha() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
+       
         data.characters.forEach(element => {
 
             if (element.personal?.clan === "Uchiha" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Uchiha"))) {
@@ -39,7 +40,10 @@ async function uchiha() {
 
                 const addNameUchiha = document.createElement("button");
                 divContainer.appendChild(addNameUchiha);
+                addNameUchiha.className = "decoButton"
                 addNameUchiha.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameUchiha.addEventListener("click", () => {
 

@@ -1,6 +1,10 @@
 async function aburame() {
+     
+ 
     
     hideButtonsClans();
+    
+    
 
     const aburamebiTitle = document.createElement("h1");
     divContainer.appendChild(aburamebiTitle);
@@ -22,7 +26,7 @@ async function aburame() {
         
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 
@@ -42,8 +46,12 @@ async function aburame() {
 
                 const addNameAburame = document.createElement("button");
                 divContainer.appendChild(addNameAburame);
+                addNameAburame.className = "decoButton"
+                
                 addNameAburame.innerHTML = element.name;
-
+                
+                changeStyleButton()
+                
                 addNameAburame.addEventListener("click", () => {
 
                 createDescription(element)

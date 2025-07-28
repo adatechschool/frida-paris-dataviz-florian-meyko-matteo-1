@@ -21,7 +21,7 @@ async function akimichi() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
         data.characters.forEach(element => {
 
             if (element.personal?.clan === "Akimichi" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Akimichi"))) {
@@ -40,7 +40,10 @@ async function akimichi() {
 
                 const addNameAkimichi = document.createElement("button");
                 divContainer.appendChild(addNameAkimichi);
+                addNameAkimichi.className = "decoButton"
                 addNameAkimichi.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameAkimichi.addEventListener("click", () => {
 

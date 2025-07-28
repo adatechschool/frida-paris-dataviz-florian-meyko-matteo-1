@@ -24,6 +24,15 @@ const divContainer = document.getElementById("divContainer");
 const famillyContainer = document.getElementById("famillyContainer")
 const infoContainer = document.getElementById("infoContainer")
 
+ document.querySelectorAll('.decoButton').forEach(button => {
+    const text = button.textContent.trim();
+    button.textContent = '';
+    for (let letter of text) {
+      const span = document.createElement('span');
+      span.textContent = letter;
+      button.appendChild(span);
+    }
+  });
 let stopJonin = false;
 
 
@@ -107,6 +116,7 @@ function showKonoha() {
     konohaButton.style.display = "none";
     hierarchyButton.style.display = "inline-block";
     clansButton.style.display = "inline-block";
+    document.body.style.backgroundImage = "url('images/fond2.jpg')"
 
 };
 
@@ -184,4 +194,17 @@ function createDescription(element) {
 
                     
 
+}
+
+function changeStyleButton(){
+    
+    document.querySelectorAll('.decoButton').forEach(button => {
+                    const text = button.textContent.trim();
+                    button.textContent = '';
+                    for (let letter of text) {
+                    const span = document.createElement('span');
+                    span.textContent = letter;
+                    button.appendChild(span);
+                    }
+                });
 }

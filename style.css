@@ -1,3 +1,58 @@
+@font-face {
+  font-family: 'NarutoFont';
+  src: url('fonts/njnaruto.ttf') format('truetype');
+}
+
+
+.decoButton {
+  font-family: 'NarutoFont', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 5px 10px;
+  
+}
+.decoButton span {
+/* display: inline-block; */
+  background: linear-gradient(90deg, #FFD700, #FF4500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #013A63;  /* Contour propre */
+  background-clip: text;
+  
+}
+
 .hidden {
     display: none;
 }
+
+body {
+  background-image: url("images/fond.jpeg");
+  background-size: cover;         /* Agrandit l'image pour couvrir tout l'écran */
+  background-repeat: no-repeat;   /* Évite la répétition */
+  background-position: center;    /* Centre l’image */
+  margin: 0;                      /* Évite les marges blanches par défaut */
+  min-height: 100vh;              /* Force le body à prendre toute la hauteur de la fenêtre */
+}
+#konoha{
+   position: fixed;
+  top: 50%;               /* centre verticalement */
+  right: 20px;            /* espace depuis le bord droit */
+  transform: translateY(-50%); /* corrige l’alignement vertical */
+  z-index: 1000; 
+}
+.center{
+display: none; /* masqué au départ */
+  justify-content: center;  /* centre horizontalement */
+  align-items: center;      /* centre verticalement */
+  width: 100vw;
+  gap: 20px; /* espace entre les boutons */
+  flex-wrap: wrap; /* si jamais tu veux que ça passe à la ligne sur petits écrans */
+ 
+ }
+ #choice{
+  display: flex;
+  height: 100vh;
+ }

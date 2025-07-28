@@ -24,7 +24,7 @@ async function hyuga() {
         
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 
@@ -44,7 +44,10 @@ async function hyuga() {
 
                 const addNameHyuga = document.createElement("button");
                 divContainer.appendChild(addNameHyuga);
+                addNameHyuga.className = "decoButton"
                 addNameHyuga.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameHyuga.addEventListener("click", () => {
 

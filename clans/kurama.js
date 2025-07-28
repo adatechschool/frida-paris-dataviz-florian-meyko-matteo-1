@@ -22,7 +22,8 @@ async function kurama() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
+        
         data.characters.forEach(element => {
 
             if (element.personal?.clan === "Kurama" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Kurama"))) {
@@ -41,7 +42,10 @@ async function kurama() {
 
                 const addNameKurama = document.createElement("button");
                 divContainer.appendChild(addNameKurama);
+                addNameKurama.className = "decoButton"
                 addNameKurama.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameKurama.addEventListener("click", () => {
 

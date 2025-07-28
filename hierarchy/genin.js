@@ -31,7 +31,7 @@ async function genin() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 
@@ -71,7 +71,10 @@ async function genin() {
 
                 const addNameGenin = document.createElement("button");
                 divContainer.appendChild(addNameGenin);
+                addNameGenin.className = "decoButton"
                 addNameGenin.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameGenin.addEventListener("click", () => {
 

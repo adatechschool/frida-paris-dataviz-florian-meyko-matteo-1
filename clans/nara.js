@@ -21,7 +21,8 @@ async function nara() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
+       
         data.characters.forEach(element => {
 
             if (element.personal?.clan === "Nara" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Nara"))) {
@@ -40,7 +41,10 @@ async function nara() {
 
                 const addNameNara = document.createElement("button");
                 divContainer.appendChild(addNameNara);
+                addNameNara.className = "decoButton"
                 addNameNara.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameNara.addEventListener("click", () => {
 

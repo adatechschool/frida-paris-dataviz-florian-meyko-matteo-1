@@ -20,6 +20,7 @@ async function sarutobi() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 
@@ -39,7 +40,10 @@ async function sarutobi() {
 
                 const addNameSarutobi = document.createElement("button");
                 divContainer.appendChild(addNameSarutobi);
+                addNameSarutobi.className = "decoButton"
                 addNameSarutobi.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameSarutobi.addEventListener("click", () => {
 

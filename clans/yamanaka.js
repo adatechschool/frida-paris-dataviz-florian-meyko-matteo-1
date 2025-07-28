@@ -19,7 +19,7 @@ async function yamanaka() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 
@@ -39,7 +39,10 @@ async function yamanaka() {
 
                 const addNameYamanaka = document.createElement("button");
                 divContainer.appendChild(addNameYamanaka);
+                addNameYamanaka.className = "decoButton"
                 addNameYamanaka.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameYamanaka.addEventListener("click", () => {
 

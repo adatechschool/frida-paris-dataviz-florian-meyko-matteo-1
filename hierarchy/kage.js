@@ -22,7 +22,7 @@ async function kage() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 
@@ -61,7 +61,10 @@ async function kage() {
 
                 const addNameKage = document.createElement("button");
                 divContainer.appendChild(addNameKage);
+                addNameKage.className = "decoButton"
                 addNameKage.innerHTML = element.name;
+                
+                changeStyleButton()
 
 
                 addNameKage.addEventListener("click", () => {

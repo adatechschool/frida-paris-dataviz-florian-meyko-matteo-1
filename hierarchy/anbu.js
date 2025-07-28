@@ -22,7 +22,7 @@ async function anbu() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-
+     if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 
@@ -62,7 +62,10 @@ async function anbu() {
 
                 const addNameAnbu = document.createElement("button");
                 divContainer.appendChild(addNameAnbu);
+                addNameAnbu.className = "decoButton"
                 addNameAnbu.innerHTML = element.name;
+
+                changeStyleButton()
 
                 addNameAnbu.addEventListener("click", () => {
 
