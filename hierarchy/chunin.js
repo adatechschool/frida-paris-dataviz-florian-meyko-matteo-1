@@ -1,4 +1,8 @@
 async function chunin() {
+     document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center center";
 
     hideButtonsHierarchy();
 

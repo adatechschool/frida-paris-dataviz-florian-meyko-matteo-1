@@ -1,14 +1,31 @@
 async function uzumaki() {
 
+        document.body.style.backgroundImage = "url('images/fond2.jpg')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center center";
+        
+        
+
     hideButtonsClans();
 
     const uzumakiTitle = document.createElement("h1");
     divContainer.appendChild(uzumakiTitle);
+     const h1 = document.querySelector('h1');
+    h1.style.color = "orange"
+    h1.style.fontFamily= "OnepieceFont"
     uzumakiTitle.innerHTML = "Uzumaki";
 
     const uzumakiDescription = document.createElement("p");
     divContainer.appendChild(uzumakiDescription);
-
+    const p = document.querySelector('p');
+    p.style.fontFamily = 'Ace2';
+    p.style.background = "linear-gradient(90deg,  #FF4500, #FFD700)";
+    p.style.webkitBackgroundClip = "text";
+    p.style.webkitTextFillColor = "transparent";
+    p.style.fontSize = "20px";
+    p.style.webkitTextStroke = "1px black";
+       
     uzumakiDescription.innerHTML = `Le Clan Uzumaki (うずまき一族, Uzumaki Ichizoku) était le clan prédominant du village caché d'Uzushio. Ce clan 
     avait un lointain lien de parenté avec le clan Senju avec lequel ils ont toujours entretenu de bonnes relations. Ils furent décimés lors des 
     Grandes Guerres Ninjas en même temps que le Pays des Tourbillons. Les rares survivants s'exilèrent à travers le monde. Depuis, les ninjas du 
@@ -54,6 +71,7 @@ async function uzumaki() {
                 addNameUzumaki.addEventListener("click", () => {
 
                 createDescription(element)
+                
                     
 
                 });

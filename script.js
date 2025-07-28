@@ -117,6 +117,7 @@ function showKonoha() {
     hierarchyButton.style.display = "inline-block";
     clansButton.style.display = "inline-block";
     document.body.style.backgroundImage = "url('images/fond2.jpg')"
+    document.body.style.backgroundSize = "cover"
 
 };
 

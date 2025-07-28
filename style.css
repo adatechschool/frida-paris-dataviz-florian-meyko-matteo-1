@@ -1,8 +1,23 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
 @font-face {
   font-family: 'NarutoFont';
   src: url('fonts/njnaruto.ttf') format('truetype');
 }
-
+@font-face {
+  font-family: 'OnepieceFont';
+  src: url('fonts/onepiece.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Ace2';
+  src: url('fonts/animeace2_bld.ttf') format('truetype');
+}
 
 .decoButton {
   font-family: 'NarutoFont', sans-serif;
@@ -39,9 +54,9 @@ body {
 #konoha{
    position: fixed;
   top: 50%;               /* centre verticalement */
-  right: 20px;            /* espace depuis le bord droit */
+  right: 5em;            /* espace depuis le bord droit */
   transform: translateY(-50%); /* corrige l’alignement vertical */
-  z-index: 1000; 
+  z-index:auto; 
 }
 .center{
 display: none; /* masqué au départ */
@@ -53,6 +68,12 @@ display: none; /* masqué au départ */
  
  }
  #choice{
-  display: flex;
-  height: 100vh;
+    display: flex;
+  justify-content: center;  /* centre horizontalement */
+  align-items: center;      /* centre verticalement */
+  height: 100vh;            /* prend toute la hauteur de la fenêtre */
+  width: 100vw;
  }
+p, h1{
+  color: white;
+}

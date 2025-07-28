@@ -1,5 +1,10 @@
 async function academyStudent() {
 
+     document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center center";
+
     hideButtonsHierarchy();
 
     const academyStudentTitle = document.createElement("h1");
@@ -63,7 +68,7 @@ async function academyStudent() {
                 const addNameAcademyStudent = document.createElement("button");
                 divContainer.appendChild(addNameAcademyStudent);
                 addNameAcademyStudent.className = "decoButton"
-                addNameAcademyStudent.innerHTML = element.id;
+                addNameAcademyStudent.innerHTML = element.name;
 
                 changeStyleButton()
 

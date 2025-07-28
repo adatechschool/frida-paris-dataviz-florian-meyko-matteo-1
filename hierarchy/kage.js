@@ -1,6 +1,12 @@
 async function kage() {
-
+    
+try{
+        document.body.style.backgroundImage = "url('images/fondlast.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "no-repeat";        
+        document.body.style.backgroundPosition = "center center";
     hideButtonsHierarchy();
+    
     
     const titleKage = document.createElement("h1");
     divContainer.appendChild(titleKage);
@@ -21,6 +27,10 @@ async function kage() {
     for (let page = 1; page <= totalPages; page++) {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
+         if(!response.ok)
+         {
+            throw new Error(`Erreur HTTP : ${response.status}`);
+         }
         let data = await response.json();
         if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
@@ -78,4 +88,8 @@ async function kage() {
 
         });
     };
+}
+catch(error){
+    console.log(error.message)
+}
 };

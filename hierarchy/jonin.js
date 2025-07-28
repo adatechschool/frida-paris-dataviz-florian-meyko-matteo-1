@@ -1,5 +1,9 @@
 async function jonin() {
 
+    document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center center";
     hideButtonsHierarchy();
 
     const joninTitle = document.createElement("h1");
