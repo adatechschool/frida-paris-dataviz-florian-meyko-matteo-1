@@ -1,3 +1,5 @@
+
+
 const konohaButton = document.getElementById("konoha");
 const hierarchyButton = document.getElementById("hierarchy");
 const clansButton = document.getElementById("clans");
@@ -34,6 +36,7 @@ const infoContainer = document.getElementById("infoContainer")
     }
   });
 let stopJonin = false;
+
 
 
 
@@ -109,17 +112,26 @@ async function ViewClans(clansName) {
     };
 
 };
+function triggerDiveEffect(callback) {
+  const overlay = document.getElementById('overlay');
+  overlay.classList.add('active');
 
+    setTimeout(() => {
+    callback(); // Exécute ta fonction principale (ex: showKonoha)
+    overlay.classList.remove('active');
+  }, 1200); // Durée identique à celle du CSS
+}
 
 function showKonoha() {
-
-    konohaButton.style.display = "none";
+      
+      document.body.style.backgroundImage ="url('images/fond2.jpg')"
+     konohaButton.style.display = "none";
     hierarchyButton.style.display = "inline-block";
-    clansButton.style.display = "inline-block";
-    document.body.style.backgroundImage = "url('images/fond2.jpg')"
-    document.body.style.backgroundSize = "cover"
+    clansButton.style.display = "inline-block";     
+      document.body.style.backgroundSize = "cover";
+       
+}
 
-};
 
 
 function hierarchy() {
@@ -209,3 +221,4 @@ function changeStyleButton(){
                     }
                 });
 }
+

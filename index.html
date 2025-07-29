@@ -32,7 +32,20 @@
 </head>
 
 <body>
-    <button id="konoha" class="decoButton" onclick="showKonoha()">Konoha</button>
+    
+  <div id="overlay"></div>
+<button id="konoha" class="decoButton" onclick="triggerDiveEffect(showKonoha)">Konoha</button>
+
+  <!-- Ton container -->
+  <div id="divContainer"></div>
+  <div id="famillyContainer"></div>
+  <div id="infoContainer"></div>
+
+
+
+
+   
+
 <div id="choice">
     <button id="hierarchy"  class="hidden decoButton center" onclick="hierarchy()">Hierarchy</button>
     <button id="clans" class="hidden decoButton center" onclick="clans()">Clans</button>
@@ -60,14 +73,17 @@
     <button id="nara" class="hidden decoButton background" onclick="nara()">Nara</button>
     <button id="akimichi" class="hidden decoButton background" onclick="akimichi()">Akimichi</button>
     <button id="kurama" class="hidden decoButton background" onclick="kurama()">Kurama</button>
+
 </div>
 
     <div id="divContainer"></div>
+    
 
     <ul id="famillyContainer"></ul>
     <ul id="infoContainer"></ul>
     
     </div>
+   
 </body>
 
 </html>

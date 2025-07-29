@@ -35,7 +35,8 @@ body {
     background: linear-gradient(90deg, #FFD700, #FF4500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #013A63;    /* Contour propre */
+    -webkit-text-stroke: 1px #013A63;
+    /* Contour propre */
     background-clip: text;
 }
 
@@ -45,35 +46,81 @@ body {
 
 body {
     background-image: url("images/fond.jpeg");
-    background-size: cover;    /* Agrandit l'image pour couvrir tout l'écran */
-    background-repeat: no-repeat;    /* Évite la répétition */
-    background-position: center;    /* Centre l’image */
-    margin: 0;    /* Évite les marges blanches par défaut */
-    min-height: 100vh;    /* Force le body à prendre toute la hauteur de la fenêtre */
+    background-size: cover;
+    /* Agrandit l'image pour couvrir tout l'écran */
+    background-repeat: no-repeat;
+    /* Évite la répétition */
+    background-position: center;
+    /* Centre l’image */
+    margin: 0;
+    /* Évite les marges blanches par défaut */
+    min-height: 100vh;
+    /* Force le body à prendre toute la hauteur de la fenêtre */
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:rgb(191, 191, 249); /* Ou un dégradé léger */
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(0px);
+  transition: opacity 1.2s ease, backdrop-filter 1.2s ease;
 }
 
+/* Quand actif, déclenche le flou et l'opacité */
+#overlay.active {
+  opacity: 1;
+  backdrop-filter: blur(15px);
+}
 #konoha {
     position: fixed;
-    top: 50%;    /* centre verticalement */
-    right: 5em;    /* espace depuis le bord droit */
-    transform: translateY(-50%);    /* corrige l’alignement vertical */
+    top: 50%;
+    /* centre verticalement */
+    right: 5em;
+    /* espace depuis le bord droit */
+    transform: translateY(-50%);
+    /* corrige l’alignement vertical */
     z-index: auto;
-}
+      
+      /* padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 50px;
+      background: white;
+      color: #333;
+      cursor: pointer;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+      transition: all 0.6s ease;
+      position: relative;
+      z-index: 2; */
+    }
 
 .center {
-    display: none; /* masqué au départ */
-    justify-content: center; /* centre horizontalement */
-    align-items: center; /* centre verticalement */
+    display: none;
+    /* masqué au départ */
+    justify-content: center;
+    /* centre horizontalement */
+    align-items: center;
+    /* centre verticalement */
     width: 100vw;
-    gap: 20px; /* espace entre les boutons */
-    flex-wrap: wrap; /* si jamais tu veux que ça passe à la ligne sur petits écrans */
+    gap: 20px;
+    /* espace entre les boutons */
+    flex-wrap: wrap;
+    /* si jamais tu veux que ça passe à la ligne sur petits écrans */
 }
 
 #choice {
     display: flex;
-    justify-content: center; /* centre horizontalement */
-    align-items: center; /* centre verticalement */
-    height: 100vh; /* prend toute la hauteur de la fenêtre */
+    justify-content: center;
+    /* centre horizontalement */
+    align-items: center;
+    /* centre verticalement */
+    height: 100vh;
+    /* prend toute la hauteur de la fenêtre */
     width: 100vw;
 }
 
@@ -81,3 +128,5 @@ p,
 h1 {
     color: white;
 }
+
+
