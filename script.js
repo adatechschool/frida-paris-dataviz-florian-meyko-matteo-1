@@ -24,11 +24,11 @@ const divContainer = document.getElementById("divContainer");
 const famillyContainer = document.getElementById("famillyContainer")
 const infoContainer = document.getElementById("infoContainer")
 
- document.querySelectorAll('.decoButton').forEach(button => {
+ document.querySelectorAll(".decoButton").forEach(button => {
     const text = button.textContent.trim();
-    button.textContent = '';
+    button.textContent = "";
     for (let letter of text) {
-      const span = document.createElement('span');
+      const span = document.createElement("span");
       span.textContent = letter;
       button.appendChild(span);
     }
@@ -81,12 +81,12 @@ async function searchCharacters(firstName) {
 
             if (element.name === firstName) {
                 console.log(element.id);
-            };
+            }
 
-        });
+        })
 
-    };
-};
+    }
+}
 
 
 async function ViewClans(clansName) {

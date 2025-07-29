@@ -1,6 +1,6 @@
 async function uzumaki() {
 
-        document.body.style.backgroundImage = "url('images/fond2.jpg')";
+        document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
         document.body.style.backgroundRepeat = "repeat";        
         document.body.style.backgroundPosition = "center center";
@@ -11,22 +11,30 @@ async function uzumaki() {
 
     const uzumakiTitle = document.createElement("h1");
     divContainer.appendChild(uzumakiTitle);
-     const h1 = document.querySelector('h1');
-    h1.style.color = "orange"
-    h1.style.fontFamily= "OnepieceFont"
+    const h1 = document.querySelector('h1');
+    // h1.style.color = "orange"
+    h1.style.fontFamily= "Ace2"
+    h1.style.background = "linear-gradient(90deg, #FFD700, #FF4500)";
+    h1.style.backgroundClip = "text";
+    h1.style.webkitTextFillColor = "transparent";
+    h1.style.webkitTextStroke = "1px #013A63"
+    h1.style.fontSize = "2em";
+
+
     uzumakiTitle.innerHTML = "Uzumaki";
 
+    
     const uzumakiDescription = document.createElement("p");
     divContainer.appendChild(uzumakiDescription);
     const p = document.querySelector('p');
     p.style.fontFamily = 'Ace2';
     p.style.background = "linear-gradient(90deg,  #FF4500, #FFD700)";
-    p.style.webkitBackgroundClip = "text";
+    p.style.backgroundClip = "text";
     p.style.webkitTextFillColor = "transparent";
     p.style.fontSize = "20px";
     p.style.webkitTextStroke = "1px black";
        
-    uzumakiDescription.innerHTML = `Le Clan Uzumaki (うずまき一族, Uzumaki Ichizoku) était le clan prédominant du village caché d'Uzushio. Ce clan 
+    uzumakiDescription.innerHTML = `Le Clan Uzumaki (Uzumaki Ichizoku) était le clan prédominant du village caché d'Uzushio. Ce clan 
     avait un lointain lien de parenté avec le clan Senju avec lequel ils ont toujours entretenu de bonnes relations. Ils furent décimés lors des 
     Grandes Guerres Ninjas en même temps que le Pays des Tourbillons. Les rares survivants s'exilèrent à travers le monde. Depuis, les ninjas du 
     village de Konoha arborent le symbole Uzumaki sur leurs uniformes, en mémoire de leurs amis défunts.`
@@ -46,6 +54,7 @@ async function uzumaki() {
 
                 const addImgUzumaki = document.createElement("img");
                 divContainer.appendChild(addImgUzumaki);
+                
 
                 if (element.images[0]) {
                     addImgUzumaki.src = element.images[0];
