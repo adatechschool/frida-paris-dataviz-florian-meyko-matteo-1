@@ -1,22 +1,24 @@
 async function jonin() {
 
-    document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+    document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
         document.body.style.backgroundRepeat = "repeat";        
         document.body.style.backgroundPosition = "center center";
     hideButtonsHierarchy();
 
     const joninTitle = document.createElement("h1");
+    joninTitle.classList.add("title");
     divContainer.appendChild(joninTitle);
-    joninTitle.style.fontFamily= "Ace2";
+    // joninTitle.style.fontFamily= "Ace2";
     joninTitle.innerHTML = "Jōnin";
 
     const joninDescription = document.createElement("p");
+    joninDescription.classList.add("description");
     divContainer.appendChild(joninDescription);
 
-    joninDescription.innerHTML = `Les Jônin (上忍) sont généralement des shinobi très expérimentés et très compétents qui servent de capitaines 
-    militaires, dont les capacités sont considérées comme surhumaines. [1] Les jônin sont généralement capables d'utiliser au moins deux types de 
-    chakra élémentaires.[2] Il n'est pas rare que les jônin partent seuls en mission. Ils sont souvent envoyés sur des missions de rang A, et s'ils 
+    joninDescription.innerHTML = `Les Jônin sont généralement des shinobi très expérimentés et très compétents qui servent de capitaines 
+    militaires, dont les capacités sont considérées comme surhumaines. Les jônin sont généralement capables d'utiliser au moins deux types de 
+    chakra élémentaires.Il n'est pas rare que les jônin partent seuls en mission. Ils sont souvent envoyés sur des missions de rang A, et s'ils 
     sont suffisamment expérimentés, des missions de rang S également (qui sont considérées comme les plus difficiles).`;
 
 

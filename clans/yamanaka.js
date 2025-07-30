@@ -3,13 +3,15 @@ async function yamanaka() {
     hideButtonsClans();
 
     const yamanakabiTitle = document.createElement("h1");
+    yamanakabiTitle.classList.add("title");
     divContainer.appendChild(yamanakabiTitle);
     yamanakabiTitle.innerHTML = "Yamanaka";
 
     const yamanakaDescription = document.createElement("p");
+    yamanakaDescription.classList.add("description");
     divContainer.appendChild(yamanakaDescription);
 
-    yamanakaDescription.innerHTML = `Le Clan Yamanaka (山中一族, Yamanaka Ichizoku) est une famille de ninjas de Konoha. Ils possèdent et dirigent
+    yamanakaDescription.innerHTML = `Le Clan Yamanaka (Yamanaka Ichizoku) est une famille de ninjas de Konoha. Ils possèdent et dirigent
     un fleuriste dans le village de Konoha.`
     
     

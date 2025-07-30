@@ -1,5 +1,5 @@
 async function genin() {
-     document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+     document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
         document.body.style.backgroundRepeat = "repeat";        
         document.body.style.backgroundPosition = "center center";
@@ -7,13 +7,15 @@ async function genin() {
     hideButtonsHierarchy();
 
     const geninTitle = document.createElement("h1");
+    geninTitle.classList.add("title");
     divContainer.appendChild(geninTitle);
     geninTitle.innerHTML = "Genin";
 
     const geninDescription = document.createElement("p");
+    geninDescription.classList.add("description");
     divContainer.appendChild(geninDescription);
 
-    geninDescription.innerHTML = `Genin (下忍, signifiant littéralement : Bas Ninja) est le grade le plus bas des ninjas, mais aussi de ceux qui 
+    geninDescription.innerHTML = `Genin (signifiant littéralement : Bas Ninja) est le grade le plus bas des ninjas, mais aussi de ceux qui 
     affichent la plus grande différence de puissance. Lorsqu'ils deviennent genin, les ninjas commencent à contribuer à l'économie de leur village 
     en étant envoyés sur des missions pour lesquelles le village est payé. Ils sont généralement envoyés sur des missions de rang D, qui sont des 
     travaux manuels presque sans risque, ou, rarement, sur des missions de rang C, qui sont un cran au-dessus et commencent à frôler le vrai travail 

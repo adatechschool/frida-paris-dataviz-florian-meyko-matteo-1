@@ -3,13 +3,15 @@ async function inuzuka() {
     hideButtonsClans();
 
     const inuzukabiTitle = document.createElement("h1");
+    inuzukabiTitle.classList.add("title");
     divContainer.appendChild(inuzukabiTitle);
     inuzukabiTitle.innerHTML = "Inuzuka";
 
     const inuzukaDescription = document.createElement("p");
+    inuzukaDescription.classList.add("description");
     divContainer.appendChild(inuzukaDescription);
 
-    inuzukaDescription.innerHTML = `Le Clan Inuzuka (犬塚一族, Inuzuka Ichizoku) est connu pour son affinité avec les chiens ninjas, avec qui 
+    inuzukaDescription.innerHTML = `Le Clan Inuzuka (Inuzuka Ichizoku) est connu pour son affinité avec les chiens ninjas, avec qui 
     les membres du clan combattent. Un membre du clan Inuzuka se voit attribuer un (ou des) partenaire(s) canin(s) lorsqu'il atteint un certain âge. 
     Étant donné leur affinité naturelle avec les chiens, un Inuzuka et son partenaire animal s'attachent très vite jusqu'à devenir inséparables. 
     Les membres du clan possèdent des marques rouges en forme de crocs sur les joues, ainsi que des yeux et des canines pointues faisant ressortir 

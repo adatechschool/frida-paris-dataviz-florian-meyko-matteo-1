@@ -1,7 +1,7 @@
 async function kage() {
     
 try{
-    document.body.style.backgroundImage = "url('images/fondlast.png')";
+    document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
     document.body.style.backgroundSize = "cover";         
     document.body.style.backgroundRepeat = "no-repeat";        
     document.body.style.backgroundPosition = "center center";
@@ -9,14 +9,16 @@ try{
     
     
     const titleKage = document.createElement("h1");
+    titleKage.classList.add("title");
     divContainer.appendChild(titleKage);
     titleKage.innerHTML = "Hokage";
 
     const kageDescription = document.createElement("p");
+    kageDescription.classList.add("description");
     divContainer.appendChild(kageDescription);
 
-    kageDescription.innerHTML = `Kage (影, signifiant littéralement : Ombre) est un titre réservé au chef de l'un des villages cachés des Cinq 
-    Grands Pays Ninjas. Ils sont collectivement connus sous le nom de Cinq Kage (五影, Gokage, signifiant littéralement : Cinq Ombres). Un Kage 
+    kageDescription.innerHTML = `Kage (signifiant littéralement : Ombre) est un titre réservé au chef de l'un des villages cachés des Cinq 
+    Grands Pays Ninjas. Ils sont collectivement connus sous le nom de Cinq Kage (Gokage, signifiant littéralement : Cinq Ombres). Un Kage 
     supervise les activités de son village, qu'il s'agisse d'envoyer des ninjas en mission ou de prendre des décisions difficiles concernant la 
     sécurité de sa population. Le Kage d'un village est généralement reconnu comme son ninja le plus puissant. Les Kage sont réputés pour être les 
     meilleurs shinobi du continent.`;

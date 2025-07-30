@@ -1,6 +1,6 @@
 async function anbu() {
 
-     document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+     document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
         document.body.style.backgroundRepeat = "repeat";        
         document.body.style.backgroundPosition = "center center";
@@ -8,17 +8,19 @@ async function anbu() {
     hideButtonsHierarchy();
 
     const titleAnbu = document.createElement("h1");
+    titleAnbu.classList.add("title");
     divContainer.appendChild(titleAnbu);
     titleAnbu.innerHTML = "Anbu";
 
     const anbuDescription = document.createElement("p");
+    anbuDescription.classList.add("description");
     divContainer.appendChild(anbuDescription);
 
-    anbuDescription.innerHTML = `Anbu (暗部, Français : Forces Spéciales, signifiant littéralement : Côté Obscur) est un mot-valise composé des mots 
-    japonais « Ansatsu Senjutsu Tokushu Butai » (暗殺戦術特殊部隊, signifiant littéralement : Escouade Spéciale de Tactique et d'Assassinat). Il s'agit 
+    anbuDescription.innerHTML = `Anbu (Français : Forces Spéciales, signifiant littéralement : Côté Obscur) est un mot-valise composé des mots 
+    japonais « Ansatsu Senjutsu Tokushu Butai » (signifiant littéralement : Escouade Spéciale de Tactique et d'Assassinat). Il s'agit 
     d'une unité spéciale créée pour servir de garde personnelle aux Kage. Le mot Anbu sert à la fois à désigner l'unité et ses membres. Il n'existe 
     apparemment pas de rang au sein de cette unité où l'évolution hiérarchique semble se baser sur le mérite et l'expérience. Les personnes ayant 
-    le commandement d'une équipe portent le titre de « chefs d'escouade » (分隊長, Buntaichô), un poste tenu en haute estime.`;
+    le commandement d'une équipe portent le titre de « chefs d'escouade » (Buntaichô), un poste tenu en haute estime.`;
 
 
     const totalPages = 72;

@@ -3,10 +3,12 @@ async function hyuga() {
     hideButtonsClans();
 
     const hyugaTitle = document.createElement("h1");
+    hyugaTitle.classList.add("title");
     divContainer.appendChild(hyugaTitle);
     hyugaTitle.innerHTML = "Hyūga";
 
     const hyugaDescription = document.createElement("p");
+    hyugaDescription.classList.add("description");
     divContainer.appendChild(hyugaDescription);
     
     hyugaDescription.innerHTML = `Le Clan Hyûga est l'un des plus anciens et puissants clans de Konoha. Tous ses membres possèdent le Byakugan, 

@@ -14,18 +14,13 @@ async function uzumaki() {
     uzumakiTitle.classList.add("title")
     divContainer.appendChild(uzumakiTitle);
    
-    // const h1 = document.querySelector('h1');
-    //uzumakiTitle.style.fontFamily= "Ace2";
-    // uzumakiTitle.style.background = "linear-gradient(90deg, #FFD700, #FF4500)";
-    // uzumakiTitle.style.backgroundClip = "text";
-    // uzumakiTitle.style.webkitTextFillColor = "transparent";
-    // uzumakiTitle.style.fontSize = "2em";
-    // uzumakiTitle.style.webkitTextStroke = "1px #013A63"
+
 
     uzumakiTitle.innerHTML = "Uzumaki";
 
     
     const uzumakiDescription = document.createElement("p");
+
     uzumakiDescription.classList.add("description");
 
     divContainer.appendChild(uzumakiDescription);

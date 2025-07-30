@@ -3,13 +3,15 @@ async function kurama() {
     hideButtonsClans();
 
     const kuramaTitle = document.createElement("h1");
+    kuramaTitle.classList.add("title");
     divContainer.appendChild(kuramaTitle);
     kuramaTitle.innerHTML = "Kurama";
 
     const kuramaDescription = document.createElement("p");
+    kuramaDescription.classList.add("description");
     divContainer.appendChild(kuramaDescription);
 
-    kuramaDescription.innerHTML = `Le Clan Kurama (鞍馬一族, Kurama Ichizoku), seulement apparu dans l'anime, est un clan excellant dans les techniques 
+    kuramaDescription.innerHTML = `Le Clan Kurama (Kurama Ichizoku), seulement apparu dans l'anime, est un clan excellant dans les techniques 
     de genjutsu. Ce talent inné dans le genjutsu est dû à un kekkei genkai que le clan possède. Cependant, une fois toutes les quelques générations, 
     un membre du clan né avec un tel potentiel en genjutsu que ses illusions peuvent réellement produire des effets qui surviennent dans la réalité. 
     Le genjutsu est tellement puissant qu'il oblige le cerveau à faire dans la réalité tout ce qui arrive à la victime dans l'illusion, permettant 

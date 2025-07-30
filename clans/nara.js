@@ -3,13 +3,15 @@ async function nara() {
     hideButtonsClans();
 
     const naraTitle = document.createElement("h1");
+    naraTitle.classList.add("title");
     divContainer.appendChild(naraTitle);
     naraTitle.innerHTML = "Nara";
 
     const naraDescription = document.createElement("p");
+    naraDescription.classList.add("description");
     divContainer.appendChild(naraDescription);
 
-    naraDescription.innerHTML = `Le Clan Nara (奈良一族, Nara Ichizoku) est connu pour la maîtrise de ses membres de la Manipulation des Ombres 
+    naraDescription.innerHTML = `Le Clan Nara (Nara Ichizoku) est connu pour la maîtrise de ses membres de la Manipulation des Ombres 
     et l'affection particulière qu'il porte aux cerfs, lesquels vivent dans une zone étendue, la forêt du clan Nara. Depuis des générations, 
     ce clan garde un livre sur des préparations médicinales ce qui laisse entendre que le clan ait un rapport avec la médecine. Parmi les secrets 
     contenus dans ce livre, on trouve les pilules utilisées par le clan Akimichi.`;

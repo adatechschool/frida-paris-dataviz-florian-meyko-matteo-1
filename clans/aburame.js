@@ -7,13 +7,14 @@ async function aburame() {
     
 
     const aburamebiTitle = document.createElement("h1");
+    aburamebiTitle.classList.add("title");
     divContainer.appendChild(aburamebiTitle);
     aburamebiTitle.innerHTML = "Aburame";
-
     const aburameDescription = document.createElement("p");
+    aburameDescription.classList.add("description");
     divContainer.appendChild(aburameDescription);
 
-    aburameDescription.innerHTML = `Le Clan Aburame (油女一族, Aburame Ichizoku) est un clan caractérisé par leur utilisation des insectes comme armes.
+    aburameDescription.innerHTML = `Le Clan Aburame (Aburame Ichizoku) est un clan caractérisé par leur utilisation des insectes comme armes.
     Les insectes vivent en symbiose dans le corps du shinobi. À la naissance, les membres de ce clan sont offerts à une race particulière d'insectes
     appelés Kikaichû, le corps leur servant de nid. Les insectes peuvent entrer et sortir au moyen de diverses pores, apparemment en mangeant leur
     chemin à travers la peau. Ils se nourrissent de chakra comme une source de nourriture, les rendant tout à fait mortel. La relation entre le shinobi
