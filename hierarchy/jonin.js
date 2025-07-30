@@ -8,19 +8,24 @@ async function jonin() {
 
     const joninTitle = document.createElement("h1");
     joninTitle.classList.add("title");
-    divContainer.appendChild(joninTitle);
-    // joninTitle.style.fontFamily= "Ace2";
     joninTitle.innerHTML = "Jōnin";
+    imgButton.appendChild(joninTitle);
 
     const joninDescription = document.createElement("p");
     joninDescription.classList.add("description");
-    divContainer.appendChild(joninDescription);
-
     joninDescription.innerHTML = `Les Jônin sont généralement des shinobi très expérimentés et très compétents qui servent de capitaines 
     militaires, dont les capacités sont considérées comme surhumaines. Les jônin sont généralement capables d'utiliser au moins deux types de 
     chakra élémentaires.Il n'est pas rare que les jônin partent seuls en mission. Ils sont souvent envoyés sur des missions de rang A, et s'ils 
     sont suffisamment expérimentés, des missions de rang S également (qui sont considérées comme les plus difficiles).`;
+     imgButton.appendChild(joninDescription);
 
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
 
     const totalPages = 72;
 
@@ -53,8 +58,11 @@ async function jonin() {
             
             ) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgJonin = document.createElement("img");
-                divContainer.appendChild(addImgJonin);
+                card.appendChild(addImgJonin);
 
 
                 if (element.images[0]) {
@@ -73,13 +81,20 @@ async function jonin() {
                 };
                 
                 const addNameJonin = document.createElement("button");
-                divContainer.appendChild(addNameJonin);
+                card.appendChild(addNameJonin);
                 addNameJonin.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameJonin.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameJonin.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                card.addEventListener("click", () => {
 
                 createDescription(element)
                     

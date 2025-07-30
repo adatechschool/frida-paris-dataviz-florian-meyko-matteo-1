@@ -9,19 +9,25 @@ async function anbu() {
 
     const titleAnbu = document.createElement("h1");
     titleAnbu.classList.add("title");
-    divContainer.appendChild(titleAnbu);
     titleAnbu.innerHTML = "Anbu";
+    imgButton.appendChild(titleAnbu);
 
     const anbuDescription = document.createElement("p");
     anbuDescription.classList.add("description");
-    divContainer.appendChild(anbuDescription);
-
     anbuDescription.innerHTML = `Anbu (Français : Forces Spéciales, signifiant littéralement : Côté Obscur) est un mot-valise composé des mots 
     japonais « Ansatsu Senjutsu Tokushu Butai » (signifiant littéralement : Escouade Spéciale de Tactique et d'Assassinat). Il s'agit 
     d'une unité spéciale créée pour servir de garde personnelle aux Kage. Le mot Anbu sert à la fois à désigner l'unité et ses membres. Il n'existe 
     apparemment pas de rang au sein de cette unité où l'évolution hiérarchique semble se baser sur le mérite et l'expérience. Les personnes ayant 
     le commandement d'une équipe portent le titre de « chefs d'escouade » (Buntaichô), un poste tenu en haute estime.`;
+     imgButton.appendChild(anbuDescription);
 
+     const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
 
     const totalPages = 72;
 
@@ -54,8 +60,11 @@ async function anbu() {
 
             ) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgAnbu = document.createElement("img");
-                divContainer.appendChild(addImgAnbu);
+                card.appendChild(addImgAnbu);
 
 
                 if (element.images[0]) {
@@ -68,13 +77,20 @@ async function anbu() {
                 };
 
                 const addNameAnbu = document.createElement("button");
-                divContainer.appendChild(addNameAnbu);
+                card.appendChild(addNameAnbu);
                 addNameAnbu.className = "decoButton"
+                 imageContainer.appendChild(card)
                 addNameAnbu.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameAnbu.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                card.addEventListener("click", () => {
 
                 createDescription(element)
                     

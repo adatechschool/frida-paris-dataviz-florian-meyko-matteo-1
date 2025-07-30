@@ -9,19 +9,25 @@ async function academyStudent() {
 
     const academyStudentTitle = document.createElement("h1");
     academyStudentTitle.classList.add("title");
-    divContainer.appendChild(academyStudentTitle);
     academyStudentTitle.innerHTML = "Academy Student";
+    imgButton.appendChild(academyStudentTitle);
 
     const academyStudentDescription = document.createElement("p");
     academyStudentDescription.classList.add("description");
-    divContainer.appendChild(academyStudentDescription);
-
     academyStudentDescription.innerHTML = `Les Étudiants de l'Académie sont formés aux bases du métier de shinobi (ninjutsu, taijutsu, genjutsu, 
     contrôle du chakra, tactiques…). Ils suivent aussi des cours classiques comme l'histoire ou les maths, et apprennent à travailler seuls et en 
     équipe. Bien qu'encore en formation, ils peuvent être mobilisés en cas d'urgence.<br><br>Pour devenir genin, ils doivent passer un examen final, 
     suivi d'un test d'évaluation par un jônin instructeur. Les critères de réussite varient selon les villages. Après la 4e Grande Guerre Shinobi, 
     le programme a été réformé pour inclure un cursus général plus rigoureux et des techniques plus avancées.`;
+    imgButton.appendChild(academyStudentDescription);
 
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
 
     const totalPages = 72;
 
@@ -54,8 +60,11 @@ async function academyStudent() {
             
             ) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgAcademyStudent = document.createElement("img");
-                divContainer.appendChild(addImgAcademyStudent);
+                card.appendChild(addImgAcademyStudent);
 
 
                 if (element.images[0]) {
@@ -68,13 +77,20 @@ async function academyStudent() {
                 };
 
                 const addNameAcademyStudent = document.createElement("button");
-                divContainer.appendChild(addNameAcademyStudent);
+                 card.appendChild(addNameAcademyStudent);
                 addNameAcademyStudent.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameAcademyStudent.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameAcademyStudent.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                card.addEventListener("click", () => {
 
                 createDescription(element)
                     

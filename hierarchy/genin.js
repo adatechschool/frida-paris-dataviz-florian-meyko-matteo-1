@@ -8,13 +8,11 @@ async function genin() {
 
     const geninTitle = document.createElement("h1");
     geninTitle.classList.add("title");
-    divContainer.appendChild(geninTitle);
     geninTitle.innerHTML = "Genin";
+    imgButton.appendChild(geninTitle);
 
     const geninDescription = document.createElement("p");
     geninDescription.classList.add("description");
-    divContainer.appendChild(geninDescription);
-
     geninDescription.innerHTML = `Genin (signifiant littéralement : Bas Ninja) est le grade le plus bas des ninjas, mais aussi de ceux qui 
     affichent la plus grande différence de puissance. Lorsqu'ils deviennent genin, les ninjas commencent à contribuer à l'économie de leur village 
     en étant envoyés sur des missions pour lesquelles le village est payé. Ils sont généralement envoyés sur des missions de rang D, qui sont des 
@@ -29,7 +27,15 @@ async function genin() {
     à l'examen écrit. En raison du fait que les genin sont les ninja de plus bas niveau, ils sont normalement assignés à des missions de rang D ou C 
     afin d'acquérir de l'expérience avant d'entreprendre des missions plus difficiles ou d'être promus au grade de chûnin, en réussissant les Examens 
     Chûnin, une série de tâches difficiles destinées à tester les compétences des genin afin de déterminer s'ils sont aptes à devenir chûnin ou non.`;
+   imgButton.appendChild(geninDescription);
 
+   const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
 
     const totalPages = 72;
 
@@ -62,8 +68,11 @@ async function genin() {
             
             ) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgGenin = document.createElement("img");
-                divContainer.appendChild(addImgGenin);
+                card.appendChild(addImgGenin);
 
 
                 if (element.images[0]) {
@@ -76,13 +85,21 @@ async function genin() {
                 };
 
                 const addNameGenin = document.createElement("button");
-                divContainer.appendChild(addNameGenin);
+                card.appendChild(addNameGenin);
                 addNameGenin.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameGenin.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameGenin.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+
+                card.addEventListener("click", () => {
 
                 createDescription(element)
                     
