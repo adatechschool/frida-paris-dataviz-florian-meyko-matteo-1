@@ -1,21 +1,32 @@
 async function nara() {
 
+    document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center";
+
     hideButtonsClans();
 
     const naraTitle = document.createElement("h1");
     naraTitle.classList.add("title");
-    divContainer.appendChild(naraTitle);
     naraTitle.innerHTML = "Nara";
+    imgButton.appendChild(naraTitle);
 
     const naraDescription = document.createElement("p");
     naraDescription.classList.add("description");
-    divContainer.appendChild(naraDescription);
-
     naraDescription.innerHTML = `Le Clan Nara (Nara Ichizoku) est connu pour la maîtrise de ses membres de la Manipulation des Ombres 
     et l'affection particulière qu'il porte aux cerfs, lesquels vivent dans une zone étendue, la forêt du clan Nara. Depuis des générations, 
     ce clan garde un livre sur des préparations médicinales ce qui laisse entendre que le clan ait un rapport avec la médecine. Parmi les secrets 
     contenus dans ce livre, on trouve les pilules utilisées par le clan Akimichi.`;
-    
+    imgButton.appendChild(naraDescription);
+
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
     
     const totalPages = 72;
 
@@ -29,8 +40,11 @@ async function nara() {
 
             if (element.personal?.clan === "Nara" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Nara"))) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgNara = document.createElement("img");
-                divContainer.appendChild(addImgNara);
+                card.appendChild(addImgNara);
 
                 if (element.images[0]) {
                     addImgNara.src = element.images[0];
@@ -42,13 +56,20 @@ async function nara() {
                 };
 
                 const addNameNara = document.createElement("button");
-                divContainer.appendChild(addNameNara);
+                card.appendChild(addNameNara);
                 addNameNara.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameNara.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameNara.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                 card.addEventListener("click", () => {
 
                 createDescription(element)
                     

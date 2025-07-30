@@ -1,16 +1,20 @@
 async function inuzuka() {
+
+    document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center";
     
     hideButtonsClans();
 
     const inuzukabiTitle = document.createElement("h1");
     inuzukabiTitle.classList.add("title");
-    divContainer.appendChild(inuzukabiTitle);
     inuzukabiTitle.innerHTML = "Inuzuka";
+    imgButton.appendChild(inuzukabiTitle);
 
     const inuzukaDescription = document.createElement("p");
     inuzukaDescription.classList.add("description");
     divContainer.appendChild(inuzukaDescription);
-
     inuzukaDescription.innerHTML = `Le Clan Inuzuka (Inuzuka Ichizoku) est connu pour son affinité avec les chiens ninjas, avec qui 
     les membres du clan combattent. Un membre du clan Inuzuka se voit attribuer un (ou des) partenaire(s) canin(s) lorsqu'il atteint un certain âge. 
     Étant donné leur affinité naturelle avec les chiens, un Inuzuka et son partenaire animal s'attachent très vite jusqu'à devenir inséparables. 
@@ -18,7 +22,15 @@ async function inuzuka() {
     leur animalité. Les liens très forts entre un Inuzuka et son partenaire canin sont si forts qu'ils permettent de combiner et partager leur chakra, 
     permettant à l'humain de prendre une apparence plus sauvage et à l'animal de prendre une apparence plus humaine. Cette combinaison leur permet 
     d'exécuter des techniques en collaboration telles que les Crocs Lacérants.`
-    
+    imgButton.appendChild(inuzukaDescription);
+
+     const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
     
     const totalPages = 72;
 
@@ -32,8 +44,11 @@ async function inuzuka() {
 
             if (element.personal?.clan === "Inuzuka" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Inuzuka"))) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgInuzuka = document.createElement("img");
-                divContainer.appendChild(addImgInuzuka);
+                card.appendChild(addImgInuzuka);
 
                 if (element.images[0]) {
                     addImgInuzuka.src = element.images[0];
@@ -45,13 +60,20 @@ async function inuzuka() {
                 };
 
                 const addNameInuzuka = document.createElement("button");
-                divContainer.appendChild(addNameInuzuka);
+                card.appendChild(addNameInuzuka);
                 addNameInuzuka.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameInuzuka.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameInuzuka.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                card.addEventListener("click", () => {
 
                 createDescription(element)
                     

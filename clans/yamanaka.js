@@ -1,19 +1,30 @@
 async function yamanaka() {
 
+    document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center";
+
     hideButtonsClans();
 
     const yamanakabiTitle = document.createElement("h1");
     yamanakabiTitle.classList.add("title");
-    divContainer.appendChild(yamanakabiTitle);
     yamanakabiTitle.innerHTML = "Yamanaka";
+     imgButton.appendChild(yamanakabiTitle);
 
     const yamanakaDescription = document.createElement("p");
     yamanakaDescription.classList.add("description");
-    divContainer.appendChild(yamanakaDescription);
-
     yamanakaDescription.innerHTML = `Le Clan Yamanaka (Yamanaka Ichizoku) est une famille de ninjas de Konoha. Ils possèdent et dirigent
     un fleuriste dans le village de Konoha.`
-    
+    imgButton.appendChild(yamanakaDescription);
+
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
     
     const totalPages = 72;
 
@@ -27,8 +38,12 @@ async function yamanaka() {
 
             if (element.personal?.clan === "Yamanaka" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Yamanaka"))) {
 
+
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgYamanaka = document.createElement("img");
-                divContainer.appendChild(addImgYamanaka);
+                card.appendChild(addImgYamanaka);
 
                 if (element.images[0]) {
                     addImgYamanaka.src = element.images[0];
@@ -40,13 +55,20 @@ async function yamanaka() {
                 };
 
                 const addNameYamanaka = document.createElement("button");
-                divContainer.appendChild(addNameYamanaka);
+                card.appendChild(addNameYamanaka);
                 addNameYamanaka.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameYamanaka.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameYamanaka.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                 card.addEventListener("click", () => {
 
                 createDescription(element)
                     

@@ -1,22 +1,30 @@
 async function uchiha() {
 
+    document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center";
     hideButtonsClans();
 
     const uchihaTitle = document.createElement("h1");
     uchihaTitle.classList.add("title");
-    
-
-    divContainer.appendChild(uchihaTitle);
     uchihaTitle.innerHTML = "Uchiha";
+    imgButton.appendChild(uchihaTitle);
 
     const uchihaDescription = document.createElement("p");
     uchihaDescription.classList.add("description");
-    divContainer.appendChild(uchihaDescription);
-
     uchihaDescription.innerHTML = `Le clan Uchiwa (Uchiha Ichizoku) était autrefois considéré comme le plus puissant clan de Konoha et un 
     des plus puissants du monde ninja (avec pour seul et unique rival le clan Senju avec lequel il fonda Konoha), mais il a maintenant presque disparu 
     après les événements du massacre du clan.`;
+     imgButton.appendChild(uchihaDescription);
     
+     const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
     
     const totalPages = 72;
 
@@ -30,8 +38,12 @@ async function uchiha() {
 
             if (element.personal?.clan === "Uchiha" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Uchiha"))) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
+
                 const addImgUchiha = document.createElement("img");
-                divContainer.appendChild(addImgUchiha);
+                card.appendChild(addImgUchiha);
 
                 if (element.images[0]) {
                     addImgUchiha.src = element.images[0];
@@ -43,13 +55,20 @@ async function uchiha() {
                 };
 
                 const addNameUchiha = document.createElement("button");
-                divContainer.appendChild(addNameUchiha);
+                card.appendChild(addNameUchiha);
                 addNameUchiha.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameUchiha.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameUchiha.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                 card.addEventListener("click", () => {
 
                 createDescription(element)
                     

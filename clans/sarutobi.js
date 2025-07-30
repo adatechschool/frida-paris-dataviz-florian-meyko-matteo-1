@@ -1,20 +1,31 @@
 async function sarutobi() {
 
+    document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
+        document.body.style.backgroundSize = "cover";         
+        document.body.style.backgroundRepeat = "repeat";        
+        document.body.style.backgroundPosition = "center";
+
     hideButtonsClans();
 
     const sarutobiTitle = document.createElement("h1");
     sarutobiTitle.classList.add("title");
-    divContainer.appendChild(sarutobiTitle);
     sarutobiTitle.innerHTML = "Sarutobi";
+    imgButton.appendChild(sarutobiTitle);
 
     const sarutobiDescription = document.createElement("p");
     sarutobiDescription.classList.add("description");
-    divContainer.appendChild(sarutobiDescription);
-
     sarutobiDescription.innerHTML = `Il est à l'origine de plusieurs membres notables ayant accédé à des postes de hauts rangs, tel que Hokage,
     ou membre des Douze Ninjas Gardiens. Tous les membres connus semblent tous dévoués à la Volonté du Feu. Il fut l'un des premiers clans à rejoindre
     Konoha lors de sa création par les Senju et les Uchiwa.`;
-    
+    imgButton.appendChild(sarutobiDescription);
+
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
     
     const totalPages = 72;
 
@@ -28,8 +39,11 @@ async function sarutobi() {
 
             if (element.personal?.clan === "Sarutobi" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Sarutobi"))) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgSarutobi = document.createElement("img");
-                divContainer.appendChild(addImgSarutobi);
+                card.appendChild(addImgSarutobi);
 
                 if (element.images[0]) {
                     addImgSarutobi.src = element.images[0];
@@ -41,13 +55,20 @@ async function sarutobi() {
                 };
 
                 const addNameSarutobi = document.createElement("button");
-                divContainer.appendChild(addNameSarutobi);
+                card.appendChild(addNameSarutobi);
                 addNameSarutobi.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameSarutobi.innerHTML = element.name;
 
                 changeStyleButton()
 
                 addNameSarutobi.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
+                card.addEventListener("click", () => {
 
                 createDescription(element)
                     

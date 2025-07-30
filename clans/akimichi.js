@@ -77,6 +77,12 @@ async function akimichi() {
                     
 
                 });
+                card.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
             };
 
         });
