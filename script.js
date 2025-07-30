@@ -1,4 +1,4 @@
-
+const historyStack = []
 
 const konohaButton = document.getElementById("konoha");
 const hierarchyButton = document.getElementById("hierarchy");
@@ -35,7 +35,10 @@ const infoContainer = document.getElementById("infoContainer")
       button.appendChild(span);
     }
   });
+
 let stopJonin = false;
+
+let hasEnteredSubPage = false
 
 
 
@@ -112,17 +115,74 @@ async function ViewClans(clansName) {
     };
 
 };
+
 function triggerDiveEffect(callback) {
+  historyStack.push(callback)
   const overlay = document.getElementById('overlay');
   overlay.classList.add('active');
+
+//document.getElementById("backButton").classList.remove("hidden")
 
     setTimeout(() => {
     callback(); // Exécute ta fonction principale (ex: showKonoha)
     overlay.classList.remove('active');
-  }, 1200); // Durée identique à celle du CSS
+  }, 400); // Durée identique à celle du CSS
 }
 
+function goBack() {
+  // Supprime l'action actuelle
+  historyStack.pop();
+  
+  const backButton = document.getElementById("backButton");
+backButton.classList.remove("show");
+
+setTimeout(() => {
+  // Masque seulement si on revient à l'accueil
+  if (!hasEnteredSubPage) {
+    backButton.classList.add("hidden");
+  }
+}, 0);
+
+// On revient à l'accueil, donc on réinitialise
+hasEnteredSubPage = false;
+
+
+
+  // Nettoyage AVANT d'afficher la page précédente
+  clearAllContent();
+  
+  // Si la pile est vide, retourne à l'accueil
+  if (historyStack.length === 0) {
+    resetToHome(
+        document.getElementById("backButton").classList.add("hidden") );
+    return;
+  }
+
+  // Récupère la fonction précédente
+  const previousAction = historyStack[historyStack.length - 1];
+    // Appelle la fonction précédente
+  previousAction();
+}
+
+
+
+function clearAllContent() {
+  divContainer.innerHTML = "";
+  famillyContainer.innerHTML = "";
+  infoContainer.innerHTML = "";
+
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.id !== "backButton" && btn.id !== "konoha") {
+      btn.style.display = "none";
+    }
+  });
+}
+
+
+
+
 function showKonoha() {
+     clearAllContent()
       
       document.body.style.backgroundImage ="url('images/fond2.jpg')"
      konohaButton.style.display = "none";
@@ -133,8 +193,9 @@ function showKonoha() {
 }
 
 
-
 function hierarchy() {
+     clearAllContent()
+            
 
     hierarchyButton.style.display = "none";
     clansButton.style.display = "none";
@@ -145,10 +206,20 @@ function hierarchy() {
     geninButton.style.display = "inline-block";
     academyStudentButton.style.display = "inline-block";
 
+ document.getElementById("backButton").classList.remove("hidden");
+
+ hasEnteredSubPage = true;
+const backButton = document.getElementById("backButton");
+backButton.classList.remove("hidden");
+setTimeout(() => backButton.classList.add("show"), 10);
+
+   
+
 };
 
 
 function clans() {
+     clearAllContent()
 
     hierarchyButton.style.display = "none";
     clansButton.style.display = "none";
@@ -164,9 +235,13 @@ function clans() {
     akimichiButton.style.display = "inline-block";
     kuramaButton.style.display = "inline-block";
 
+document.getElementById("backButton").classList.remove("hidden");
+
+
 };
 
 function createDescription(element) {
+    clearAllContent()
     stopJonin = true;
      divContainer.innerHTML = "";
      
@@ -196,7 +271,7 @@ function createDescription(element) {
                     infoContainer.appendChild(ninjaId);
                     ninjaId.innerHTML = ` Ninja Registration : ${element.rank.ninjaRegistration}`;
 
-                    const firstTime = document.createElement("li");
+                     const firstTime = document.createElement("li");
                     infoContainer.appendChild(firstTime);
                     firstTime.innerHTML = `First appearance on paper  : ${element.debut.manga}`;
 
