@@ -1,5 +1,5 @@
 async function chunin() {
-     document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+     document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
         document.body.style.backgroundRepeat = "repeat";        
         document.body.style.backgroundPosition = "center center";
@@ -7,13 +7,15 @@ async function chunin() {
     hideButtonsHierarchy();
 
     const chuninTitle = document.createElement("h1");
+    chuninTitle.classList.add("title");
     divContainer.appendChild(chuninTitle);
     chuninTitle.innerHTML = "Chūnin";
 
     const chuninDescription = document.createElement("p");
+    chuninDescription.classList.add("description");
     divContainer.appendChild(chuninDescription);
 
-    chuninDescription.innerHTML = `Les Chûnin (中忍, signifiant littéralement : Ninja Moyen, signification (Kana) : Ninja de moyenne classe) sont 
+    chuninDescription.innerHTML = `Les Chûnin (signifiant littéralement : Ninja Moyen, signification (Kana) : Ninja de moyenne classe) sont 
     des ninjas qui ont atteint un niveau de maturité et de capacité qui consiste principalement en des compétences de meneur d'hommes et des prouesses 
     tactiques. Les chûnin sont généralement envoyés en mission de rang C ou de rang B. Certains chûnin, comme Iruka Umino et Shino Aburame, deviennent 
     des professeurs de l'Académie.`;

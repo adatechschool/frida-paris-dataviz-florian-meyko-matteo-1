@@ -1,6 +1,6 @@
 async function academyStudent() {
 
-     document.body.style.backgroundImage = "url('images/fondkonohaneutre.png')";
+     document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
         document.body.style.backgroundRepeat = "repeat";        
         document.body.style.backgroundPosition = "center center";
@@ -8,10 +8,12 @@ async function academyStudent() {
     hideButtonsHierarchy();
 
     const academyStudentTitle = document.createElement("h1");
+    academyStudentTitle.classList.add("title");
     divContainer.appendChild(academyStudentTitle);
     academyStudentTitle.innerHTML = "Academy Student";
 
     const academyStudentDescription = document.createElement("p");
+    academyStudentDescription.classList.add("description");
     divContainer.appendChild(academyStudentDescription);
 
     academyStudentDescription.innerHTML = `Les Étudiants de l'Académie sont formés aux bases du métier de shinobi (ninjutsu, taijutsu, genjutsu, 

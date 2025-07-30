@@ -3,10 +3,12 @@ async function sarutobi() {
     hideButtonsClans();
 
     const sarutobiTitle = document.createElement("h1");
+    sarutobiTitle.classList.add("title");
     divContainer.appendChild(sarutobiTitle);
     sarutobiTitle.innerHTML = "Sarutobi";
 
     const sarutobiDescription = document.createElement("p");
+    sarutobiDescription.classList.add("description");
     divContainer.appendChild(sarutobiDescription);
 
     sarutobiDescription.innerHTML = `Il est à l'origine de plusieurs membres notables ayant accédé à des postes de hauts rangs, tel que Hokage,

@@ -3,13 +3,17 @@ async function uchiha() {
     hideButtonsClans();
 
     const uchihaTitle = document.createElement("h1");
+    uchihaTitle.classList.add("title");
+    
+
     divContainer.appendChild(uchihaTitle);
     uchihaTitle.innerHTML = "Uchiha";
 
     const uchihaDescription = document.createElement("p");
+    uchihaDescription.classList.add("description");
     divContainer.appendChild(uchihaDescription);
 
-    uchihaDescription.innerHTML = `Le clan Uchiwa (うちは一族, Uchiha Ichizoku) était autrefois considéré comme le plus puissant clan de Konoha et un 
+    uchihaDescription.innerHTML = `Le clan Uchiwa (Uchiha Ichizoku) était autrefois considéré comme le plus puissant clan de Konoha et un 
     des plus puissants du monde ninja (avec pour seul et unique rival le clan Senju avec lequel il fonda Konoha), mais il a maintenant presque disparu 
     après les événements du massacre du clan.`;
     

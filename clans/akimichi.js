@@ -3,13 +3,15 @@ async function akimichi() {
     hideButtonsClans();
 
     const akimichiTitle = document.createElement("h1");
+    akimichiTitle.classList.add("title");
     divContainer.appendChild(akimichiTitle);
     akimichiTitle.innerHTML = "Akimichi";
 
     const akimichiDescription = document.createElement("p");
+    akimichiDescription.classList.add("description");
     divContainer.appendChild(akimichiDescription);
 
-    akimichiDescription.innerHTML = `Le Clan Akimichi (秋道一族, Akimichi Ichizoku) est un des grands clans de Konoha.[1] Ses membres sont capables
+    akimichiDescription.innerHTML = `Le Clan Akimichi (Akimichi Ichizoku) est un des grands clans de Konoha.[1] Ses membres sont capables
     de convertir rapidement les calories en chakra, qu'ils utilisent ensuite pour leurs techniques secrètes, telles le Décuplement et les autres
     variantes de jutsu d'agrandissement du corps. Ils ont eu quinze chefs, Chôza Akimichi en est le chef actuel. Chôji Akimichi est désigné pour 
     devenir le seizième chef.`;

@@ -3,13 +3,15 @@ async function senju() {
     hideButtonsClans();
 
     const senjuTitle = document.createElement("h1");
+    senjuTitle.classList.add("title");
     divContainer.appendChild(senjuTitle);
     senjuTitle.innerHTML = "Senju";
 
     const senjuDescription = document.createElement("p");
+    senjuDescription.classList.add("description");
     divContainer.appendChild(senjuDescription);
 
-    senjuDescription.innerHTML = `Le clan Senju (千手一族, Senju Ichizoku) était l'un des clans les plus puissants de l'époque, qui avait pour chef, 
+    senjuDescription.innerHTML = `Le clan Senju (Senju Ichizoku) était l'un des clans les plus puissants de l'époque, qui avait pour chef, 
     le redoutable et unique utilisateur naturel du Mokuton, Hashirama Senju, qui devint plus tard, le premier Hokage. Ils avaient pour rivaux, 
     le clan Uchiwa dont leur chef, Madara Uchiwa, fut le plus grand et unique rival d'Hashirama Senju. Ils furent à l'origine de la création du village 
     caché des feuilles avec le clan Uchiwa. Il fut également révélé qu'ils auraient des liens de parenté éloignés avec le clan Uzumaki.`;
