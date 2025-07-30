@@ -8,6 +8,7 @@ async function jonin() {
 
     const joninTitle = document.createElement("h1");
     divContainer.appendChild(joninTitle);
+    joninTitle.style.fontFamily= "Ace2";
     joninTitle.innerHTML = "Jōnin";
 
     const joninDescription = document.createElement("p");

@@ -9,30 +9,27 @@ async function uzumaki() {
 
     hideButtonsClans();
 
+   
     const uzumakiTitle = document.createElement("h1");
+    uzumakiTitle.classList.add("title")
     divContainer.appendChild(uzumakiTitle);
-    const h1 = document.querySelector('h1');
-    // h1.style.color = "orange"
-    h1.style.fontFamily= "Ace2"
-    h1.style.background = "linear-gradient(90deg, #FFD700, #FF4500)";
-    h1.style.backgroundClip = "text";
-    h1.style.webkitTextFillColor = "transparent";
-    h1.style.webkitTextStroke = "1px #013A63"
-    h1.style.fontSize = "2em";
-
+   
+    // const h1 = document.querySelector('h1');
+    //uzumakiTitle.style.fontFamily= "Ace2";
+    // uzumakiTitle.style.background = "linear-gradient(90deg, #FFD700, #FF4500)";
+    // uzumakiTitle.style.backgroundClip = "text";
+    // uzumakiTitle.style.webkitTextFillColor = "transparent";
+    // uzumakiTitle.style.fontSize = "2em";
+    // uzumakiTitle.style.webkitTextStroke = "1px #013A63"
 
     uzumakiTitle.innerHTML = "Uzumaki";
 
     
     const uzumakiDescription = document.createElement("p");
+    uzumakiDescription.classList.add("description");
+
     divContainer.appendChild(uzumakiDescription);
-    const p = document.querySelector('p');
-    p.style.fontFamily = 'Ace2';
-    p.style.background = "linear-gradient(90deg,  #FF4500, #FFD700)";
-    p.style.backgroundClip = "text";
-    p.style.webkitTextFillColor = "transparent";
-    p.style.fontSize = "20px";
-    p.style.webkitTextStroke = "1px black";
+    const p = document.querySelector("p");
        
     uzumakiDescription.innerHTML = `Le Clan Uzumaki (Uzumaki Ichizoku) était le clan prédominant du village caché d'Uzushio. Ce clan 
     avait un lointain lien de parenté avec le clan Senju avec lequel ils ont toujours entretenu de bonnes relations. Ils furent décimés lors des 

@@ -1,10 +1,10 @@
 async function kage() {
     
 try{
-        document.body.style.backgroundImage = "url('images/fondlast.png')";
-        document.body.style.backgroundSize = "cover";         
-        document.body.style.backgroundRepeat = "no-repeat";        
-        document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundImage = "url('images/fondlast.png')";
+    document.body.style.backgroundSize = "cover";         
+    document.body.style.backgroundRepeat = "no-repeat";        
+    document.body.style.backgroundPosition = "center center";
     hideButtonsHierarchy();
     
     
@@ -66,7 +66,7 @@ try{
                 if (element.name === "Naruto Uzumaki") {
                     addImgKage.src = "images/Naruto.webp";
                     addImgKage.width = 150;
-                };
+                }
 
 
                 const addNameKage = document.createElement("button");
@@ -82,14 +82,14 @@ try{
                 createDescription(element)
                     
 
-                });
+                })
 
-            };
+            }
 
-        });
-    };
+        })
+    }
 }
 catch(error){
     console.log(error.message)
 }
-};
+}

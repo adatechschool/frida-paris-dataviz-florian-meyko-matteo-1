@@ -3,6 +3,8 @@ async function uchiha() {
     hideButtonsClans();
 
     const uchihaTitle = document.createElement("h1");
+    uchihaTitle.classList.add("title");
+
     divContainer.appendChild(uchihaTitle);
     uchihaTitle.innerHTML = "Uchiha";
 
