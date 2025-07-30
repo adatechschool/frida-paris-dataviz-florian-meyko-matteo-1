@@ -22,6 +22,7 @@ const naraButton = document.getElementById("nara");
 const akimichiButton = document.getElementById("akimichi");
 const kuramaButton = document.getElementById("kurama");
 
+const imgButton = document.querySelector(".imgButton")
 const divContainer = document.getElementById("divContainer");
 const famillyContainer = document.getElementById("famillyContainer")
 const infoContainer = document.getElementById("infoContainer")
@@ -167,8 +168,11 @@ function clans() {
 };
 
 function createDescription(element) {
-    stopJonin = true;
-     divContainer.innerHTML = "";
+   imgButton.innerHTML = "";
+   divContainer.innerHTML = "";
+   famillyContainer.innerHTML = "";
+   infoContainer.innerHTML = "";
+   stopJonin = true;
      
 
 

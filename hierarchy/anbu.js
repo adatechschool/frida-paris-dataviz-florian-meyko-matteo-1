@@ -1,6 +1,6 @@
 async function anbu() {
 
-     document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
+        document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
         document.body.style.backgroundRepeat = "repeat";        
         document.body.style.backgroundPosition = "center center";
