@@ -1,4 +1,4 @@
-
+const historyStack = []
 
 const konohaButton = document.getElementById("konoha");
 const hierarchyButton = document.getElementById("hierarchy");
@@ -36,7 +36,10 @@ const infoContainer = document.getElementById("infoContainer")
       button.appendChild(span);
     }
   });
+
 let stopJonin = false;
+
+let hasEnteredSubPage = false
 
 
 
@@ -113,17 +116,74 @@ async function ViewClans(clansName) {
     };
 
 };
+
 function triggerDiveEffect(callback) {
+  historyStack.push(callback)
   const overlay = document.getElementById('overlay');
   overlay.classList.add('active');
+
+//document.getElementById("backButton").classList.remove("hidden")
 
     setTimeout(() => {
     callback(); // Exécute ta fonction principale (ex: showKonoha)
     overlay.classList.remove('active');
-  }, 1200); // Durée identique à celle du CSS
+  }, 400); // Durée identique à celle du CSS
 }
 
+function goBack() {
+  // Supprime l'action actuelle
+  historyStack.pop();
+  
+  const backButton = document.getElementById("backButton");
+backButton.classList.remove("show");
+
+setTimeout(() => {
+  // Masque seulement si on revient à l'accueil
+  if (!hasEnteredSubPage) {
+    backButton.classList.add("hidden");
+  }
+}, 0);
+
+// On revient à l'accueil, donc on réinitialise
+hasEnteredSubPage = false;
+
+
+
+  // Nettoyage AVANT d'afficher la page précédente
+  clearAllContent();
+  
+  // Si la pile est vide, retourne à l'accueil
+  if (historyStack.length === 0) {
+    resetToHome(
+        document.getElementById("backButton").classList.add("hidden") );
+    return;
+  }
+
+  // Récupère la fonction précédente
+  const previousAction = historyStack[historyStack.length - 1];
+    // Appelle la fonction précédente
+  previousAction();
+}
+
+
+
+function clearAllContent() {
+  divContainer.innerHTML = "";
+  famillyContainer.innerHTML = "";
+  infoContainer.innerHTML = "";
+
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.id !== "backButton" && btn.id !== "konoha") {
+      btn.style.display = "none";
+    }
+  });
+}
+
+
+
+
 function showKonoha() {
+     clearAllContent()
       
       document.body.style.backgroundImage ="url('images/fond2.jpg')"
      konohaButton.style.display = "none";
@@ -134,8 +194,9 @@ function showKonoha() {
 }
 
 
-
 function hierarchy() {
+     clearAllContent()
+            
 
     hierarchyButton.style.display = "none";
     clansButton.style.display = "none";
@@ -146,10 +207,20 @@ function hierarchy() {
     geninButton.style.display = "inline-block";
     academyStudentButton.style.display = "inline-block";
 
+ document.getElementById("backButton").classList.remove("hidden");
+
+ hasEnteredSubPage = true;
+const backButton = document.getElementById("backButton");
+backButton.classList.remove("hidden");
+setTimeout(() => backButton.classList.add("show"), 10);
+
+   
+
 };
 
 
 function clans() {
+     clearAllContent()
 
     hierarchyButton.style.display = "none";
     clansButton.style.display = "none";
@@ -165,48 +236,63 @@ function clans() {
     akimichiButton.style.display = "inline-block";
     kuramaButton.style.display = "inline-block";
 
+document.getElementById("backButton").classList.remove("hidden");
+
+
 };
 
 function createDescription(element) {
+
    imgButton.innerHTML = "";
    divContainer.innerHTML = "";
    famillyContainer.innerHTML = "";
    infoContainer.innerHTML = "";
    stopJonin = true;
-     
+
+    clearAllContent()
+
+      const cardChara = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+      cardChara.classList.add("cardChara");
+      divContainer.appendChild(cardChara)
 
 
                     const charaDes = document.createElement("h1");
-                    divContainer.appendChild(charaDes);
+                    cardChara.appendChild(charaDes);
                     charaDes.innerHTML = element.name;
+                    charaDes.classList.add("title")
 
                     const charaImg = document.createElement("img");
-                    divContainer.appendChild(charaImg);
+                    cardChara.appendChild(charaImg);
                     charaImg.src = element.images[0];
                     charaImg.width = 200;
 
                     
                     for (let i in element.family){
                             const family = document.createElement("li");
-                            famillyContainer.appendChild(family);
+                            cardChara.appendChild(family);
+                            family.classList.add("description")
                             family.innerHTML = ` ${i} : ${element.family[i]}`;
                     }
                     
                     const bloodType = document.createElement("li");
-                    infoContainer.appendChild(bloodType);
+                    cardChara.appendChild(bloodType);
                     bloodType.innerHTML = ` Blood Type : ${element.personal.bloodType}`;
+                    bloodType.classList.add("description")
 
                     const ninjaId = document.createElement("li");
-                    infoContainer.appendChild(ninjaId);
+                    cardChara.appendChild(ninjaId);
                     ninjaId.innerHTML = ` Ninja Registration : ${element.rank.ninjaRegistration}`;
+                    ninjaId.classList.add("description")
 
-                    const firstTime = document.createElement("li");
-                    infoContainer.appendChild(firstTime);
+                     const firstTime = document.createElement("li");
+                    cardChara.appendChild(firstTime);
                     firstTime.innerHTML = `First appearance on paper  : ${element.debut.manga}`;
+                    firstTime.classList.add("description")
 
                     const firstTimeTv = document.createElement("li");
-                    infoContainer.appendChild(firstTimeTv);
+                    cardChara.appendChild(firstTimeTv);
                     firstTimeTv.innerHTML = `First appearance on screen : ${element.debut.anime}`;
+                    firstTimeTv.classList.add("description")
 
 
                     

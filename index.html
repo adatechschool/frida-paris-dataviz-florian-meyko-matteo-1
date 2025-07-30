@@ -32,18 +32,25 @@
 </head>
 
 <body>
+
     <div id="main">
   <div id="overlay"></div>
-<button id="konoha" class="decoButton" onclick="triggerDiveEffect(showKonoha)">Konoha</button>
 
+<button id="konoha" class="decoButton" onclick="triggerDiveEffect(showKonoha)">Konoha</button>
+<div id="back"></div>
+
+<button id="backButton" class="hidden decoButton" onclick="goBack()">← Retour</button>
  
    <div id="choice"> 
     <button id="hierarchy" class="hidden center decoButton " onclick="hierarchy()">Hierarchy</button>
     <button id="clans" class="hidden center decoButton " onclick="clans()">Clans</button>
    
 
+
+
 <div class="container">
-    <button id="kage" class="hidden decoButton background" onclick="kage()">Kage</button>
+
+    <button id="kage" class="hidden decoButton background" onclick="triggerDiveEffect(kage)">Kage</button>
     <button id="anbu" class="hidden decoButton background" onclick="anbu()">Anbu</button>
     <button id="jonin" class="hidden decoButton background" onclick="jonin()">Jōnin</button>
     <button id="chunin" class="hidden decoButton background" onclick="chunin()">Chūnin</button>
@@ -79,6 +86,7 @@
     </div>
    </div>
    
+    
 </body>
 
 </html>

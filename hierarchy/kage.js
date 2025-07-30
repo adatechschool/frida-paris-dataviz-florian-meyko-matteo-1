@@ -1,3 +1,13 @@
+// function triggerDiveEffect(callback) {
+//   const overlay = document.getElementById('overlay');
+//   overlay.classList.add('active');
+
+//     setTimeout(() => {
+//     callback(); // Exécute ta fonction principale (ex: showKonoha)
+//     overlay.classList.remove('active');
+//   }, 1200); // Durée identique à celle du CSS
+// }
+
 async function kage() {
     
 try{
