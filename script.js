@@ -40,6 +40,7 @@ let stopJonin = false;
 
 let hasEnteredSubPage = false
 
+let cancelLoading = false;
 
 
 
@@ -132,19 +133,22 @@ function triggerDiveEffect(callback) {
 function goBack() {
   // Supprime l'action actuelle
   historyStack.pop();
+
+  cancelLoading = true; // 🔥 Stoppe tout chargement en cours
+  stopJonin = true;     // ← si tu l’utilises ailleurs
   
   const backButton = document.getElementById("backButton");
 backButton.classList.remove("show");
 
-setTimeout(() => {
-  // Masque seulement si on revient à l'accueil
-  if (!hasEnteredSubPage) {
-    backButton.classList.add("hidden");
-  }
-}, 0);
+// setTimeout(() => {
+//   // Masque seulement si on revient à l'accueil
+//   if (!hasEnteredSubPage) {
+//     backButton.classList.add("hidden");
+//   }
+// }, 0);
 
-// On revient à l'accueil, donc on réinitialise
-hasEnteredSubPage = false;
+// // On revient à l'accueil, donc on réinitialise
+// hasEnteredSubPage = false;
 
 
 
@@ -153,15 +157,23 @@ hasEnteredSubPage = false;
   
   // Si la pile est vide, retourne à l'accueil
   if (historyStack.length === 0) {
-    resetToHome(
-        document.getElementById("backButton").classList.add("hidden") );
-    return;
+    resetToHome()
+
   }
 
   // Récupère la fonction précédente
   const previousAction = historyStack[historyStack.length - 1];
     // Appelle la fonction précédente
   previousAction();
+}
+
+function resetToHome() {
+  clearAllContent();
+  showKonoha();
+  
+  const backButton = document.getElementById("backButton");
+  backButton.classList.remove("show");
+  backButton.classList.add("hidden");
 }
 
 
@@ -220,6 +232,10 @@ setTimeout(() => backButton.classList.add("show"), 10);
 
 function clans() {
      clearAllContent()
+     clansButton.onclick = function () {
+  triggerDiveEffect(clans);
+};
+
 
     hierarchyButton.style.display = "none";
     clansButton.style.display = "none";

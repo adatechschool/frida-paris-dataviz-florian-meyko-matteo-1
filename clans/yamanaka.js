@@ -1,6 +1,16 @@
 async function yamanaka() {
 
+cancelLoading = false; // ✅ Relance autorisée
+
+       historyStack.push(yamanaka);  // ← Historique ajouté
+  clearAllContent()
+
     hideButtonsClans();
+
+    hasEnteredSubPage = true;
+    const backButton = document.getElementById("backButton");
+    backButton.classList.remove("hidden");
+    setTimeout(() => backButton.classList.add("show"), 10);
 
     const yamanakabiTitle = document.createElement("h1");
     yamanakabiTitle.classList.add("title");
@@ -21,7 +31,8 @@ async function yamanaka() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
+        if (cancelLoading) return;
+        //if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement
 
         data.characters.forEach(element => {
 

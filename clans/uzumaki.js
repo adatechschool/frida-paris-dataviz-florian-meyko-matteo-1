@@ -1,4 +1,6 @@
 async function uzumaki() {
+    historyStack.push(uzumaki);  // ← Historique ajouté
+  clearAllContent()
 
         document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
         document.body.style.backgroundSize = "cover";         
