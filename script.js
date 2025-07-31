@@ -173,7 +173,7 @@ function clearAllContent() {
   infoContainer.innerHTML = "";
 
   document.querySelectorAll("button").forEach(btn => {
-    if (btn.id !== "backButton" && btn.id !== "konoha") {
+    if (btn.id !== "backButton" && btn.id !== "konoha" && btn.id !== "toggleMusic") {
       btn.style.display = "none";
     }
   });
@@ -263,8 +263,18 @@ function createDescription(element) {
 
                     const charaImg = document.createElement("img");
                     cardChara.appendChild(charaImg);
-                    charaImg.src = element.images[0];
+                    if (element.name === "Jiraiya") {
+                    charaImg.src = "images/Jiraiya.PNG";
+                    charaImg.width = 150;
+                } else  if(element.name === "Himawari Uzumaki") {
+                    charaImg.src = "images/himawari.png";
+                    charaImg.width = 150;
+                }
+                    else{ 
+                      charaImg.src = element.images[0];
                     charaImg.width = 200;
+                  }
+                    
 
                     
                     for (let i in element.family){
@@ -312,3 +322,16 @@ function changeStyleButton(){
                 });
 }
 
+
+function toggleMusic() {
+  const audio = document.getElementById("musique");
+  const button = document.getElementById("toggleMusic");
+
+  if (audio.paused) {
+    audio.play();
+    button.textContent = "🔊"; // Son activé
+  } else {
+    audio.pause();
+    button.textContent = "🔇"; // Son coupé
+  }
+}
