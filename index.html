@@ -32,23 +32,29 @@
 </head>
 
 <body>
-    
-<div id="overlay"></div>
+
+    <audio id="musique" autoplay loop>
+  <source src="audio/NarutoOpening.mp3" type="audio/mp3">
+  Ton navigateur ne supporte pas l’audio HTML5.
+</audio>
+
+
+    <button id="toggleMusic" onclick="toggleMusic()">🔊</button>
+    <button id="backButton" class="hidden decoButton" onclick="goBack()">← Retour</button>
+
+    <div id="main">
+  <div id="overlay"></div>
+
 <button id="konoha" class="decoButton" onclick="triggerDiveEffect(showKonoha)">Konoha</button>
-
-  <!-- Ton container -->
-
 <div id="back"></div>
-<button id="backButton" class="hidden decoButton" onclick="goBack()">← Retour</button>
 
-  <div id="divContainer"></div>
-  <div id="famillyContainer"></div>
-  <div id="infoContainer"></div>
+
+ 
+   <div id="choice"> 
+    <button id="hierarchy" class="hidden center decoButton " onclick="hierarchy()">Hierarchy</button>
+    <button id="clans" class="hidden center decoButton " onclick="clans()">Clans</button>
    
-  
-<div id="choice">
-    <button id="hierarchy" class="hidden decoButton center" onclick="triggerDiveEffect(hierarchy)">Hierarchy</button>
-    <button id="clans" class="hidden decoButton center" onclick="triggerDiveEffect(clans)">Clans</button>
+
 
 
 <div class="container">
@@ -77,13 +83,17 @@
 
 </div>
 
+
+        
+
+     <div class="imgButton"></div>
     <div id="divContainer"></div>
-    
 
     <ul id="famillyContainer"></ul>
     <ul id="infoContainer"></ul>
     
     </div>
+   </div>
    
     
 </body>

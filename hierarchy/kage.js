@@ -11,28 +11,46 @@
 async function kage() {
     
 try{
+    cancelLoading = false;
+    stopJonin = false;
+     
+
+    historyStack.push(kage);
+
+    
+   
+
     document.body.style.backgroundImage = "url('images/fond_bleu_naruto2.png')";
     document.body.style.backgroundSize = "cover";         
     document.body.style.backgroundRepeat = "no-repeat";        
     document.body.style.backgroundPosition = "center center";
     hideButtonsHierarchy();
+    clearAllContent();
+     imgButton.innerHTML = "";
+      
     
     
     const titleKage = document.createElement("h1");
     titleKage.classList.add("title");
-    divContainer.appendChild(titleKage);
     titleKage.innerHTML = "Hokage";
+    imgButton.appendChild(titleKage);
 
     const kageDescription = document.createElement("p");
     kageDescription.classList.add("description");
-    divContainer.appendChild(kageDescription);
-
     kageDescription.innerHTML = `Kage (signifiant littéralement : Ombre) est un titre réservé au chef de l'un des villages cachés des Cinq 
     Grands Pays Ninjas. Ils sont collectivement connus sous le nom de Cinq Kage (Gokage, signifiant littéralement : Cinq Ombres). Un Kage 
     supervise les activités de son village, qu'il s'agisse d'envoyer des ninjas en mission ou de prendre des décisions difficiles concernant la 
     sécurité de sa population. Le Kage d'un village est généralement reconnu comme son ninja le plus puissant. Les Kage sont réputés pour être les 
     meilleurs shinobi du continent.`;
+    imgButton.appendChild(kageDescription);
 
+     const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
 
     const totalPages = 72;
 
@@ -69,8 +87,11 @@ try{
             
             ) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgKage = document.createElement("img");
-                divContainer.appendChild(addImgKage);
+                card.appendChild(addImgKage);
                 addImgKage.src = element.images[0];
                 addImgKage.width = 200;
 
@@ -82,8 +103,9 @@ try{
 
 
                 const addNameKage = document.createElement("button");
-                divContainer.appendChild(addNameKage);
+                 card.appendChild(addNameKage);
                 addNameKage.className = "decoButton"
+                imageContainer.appendChild(card)
                 addNameKage.innerHTML = element.name;
                 
                 changeStyleButton()
@@ -94,7 +116,13 @@ try{
                 createDescription(element)
                     
 
-                })
+                });
+                 card.addEventListener("click", () => {
+
+                createDescription(element)
+                    
+
+                });
 
             }
 

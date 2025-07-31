@@ -1,4 +1,7 @@
 async function uzumaki() {
+
+    cancelLoading = false
+
     historyStack.push(uzumaki);  // ← Historique ajouté
   clearAllContent()
 
@@ -14,25 +17,25 @@ async function uzumaki() {
    
     const uzumakiTitle = document.createElement("h1");
     uzumakiTitle.classList.add("title")
-    divContainer.appendChild(uzumakiTitle);
-   
-
-
     uzumakiTitle.innerHTML = "Uzumaki";
+    imgButton.appendChild(uzumakiTitle);
 
     
     const uzumakiDescription = document.createElement("p");
-
-    uzumakiDescription.classList.add("description");
-
-    divContainer.appendChild(uzumakiDescription);
-    const p = document.querySelector("p");
-       
-    uzumakiDescription.innerHTML = `Le Clan Uzumaki (Uzumaki Ichizoku) était le clan prédominant du village caché d'Uzushio. Ce clan 
+     uzumakiDescription.classList.add("description");
+     uzumakiDescription.innerHTML = `Le Clan Uzumaki (Uzumaki Ichizoku) était le clan prédominant du village caché d'Uzushio. Ce clan 
     avait un lointain lien de parenté avec le clan Senju avec lequel ils ont toujours entretenu de bonnes relations. Ils furent décimés lors des 
     Grandes Guerres Ninjas en même temps que le Pays des Tourbillons. Les rares survivants s'exilèrent à travers le monde. Depuis, les ninjas du 
     village de Konoha arborent le symbole Uzumaki sur leurs uniformes, en mémoire de leurs amis défunts.`
+    imgButton.appendChild(uzumakiDescription);
 
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+    imgButton.appendChild(imageContainer);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    imgButton.appendChild(buttonContainer);
 
     const totalPages = 72;
 
@@ -40,14 +43,17 @@ async function uzumaki() {
 
         let response = await fetch(`https://dattebayo-api.onrender.com/characters?page=${page}`);
         let data = await response.json();
-        if (stopJonin) break; // ⛔️ Stoppe immédiatement le chargement  
+       if (cancelLoading) return;
 
         data.characters.forEach(element => {
 
             if (element.personal?.clan === "Uzumaki" || (Array.isArray(element.personal?.clan) && element.personal?.clan.includes("Uzumaki"))) {
 
+                const card = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+                card.classList.add("card");
+
                 const addImgUzumaki = document.createElement("img");
-                divContainer.appendChild(addImgUzumaki);
+                card.appendChild(addImgUzumaki);
                 
 
                 if (element.images[0]) {
@@ -65,8 +71,9 @@ async function uzumaki() {
                 };
 
                 const addNameUzumaki = document.createElement("button");
-                divContainer.appendChild(addNameUzumaki);
+                card.appendChild(addNameUzumaki);
                 addNameUzumaki.className = "decoButton"
+                 imageContainer.appendChild(card)
                 addNameUzumaki.innerHTML = element.name;
 
                 changeStyleButton()
@@ -75,6 +82,13 @@ async function uzumaki() {
 
                 createDescription(element)
                 
+                    
+
+                });
+
+                card.addEventListener("click", () => {
+
+                createDescription(element)
                     
 
                 });

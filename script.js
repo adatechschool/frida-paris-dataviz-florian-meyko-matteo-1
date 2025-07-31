@@ -22,6 +22,7 @@ const naraButton = document.getElementById("nara");
 const akimichiButton = document.getElementById("akimichi");
 const kuramaButton = document.getElementById("kurama");
 
+const imgButton = document.querySelector(".imgButton")
 const divContainer = document.getElementById("divContainer");
 const famillyContainer = document.getElementById("famillyContainer")
 const infoContainer = document.getElementById("infoContainer")
@@ -43,6 +44,18 @@ let hasEnteredSubPage = false
 let cancelLoading = false;
 
 
+function clearAllContent() {
+  divContainer.innerHTML = "";
+  famillyContainer.innerHTML = "";
+  infoContainer.innerHTML = "";
+  imgButton.innerHTML = "";  // Vide bien le contenu
+
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.id !== "backButton" && btn.id !== "konoha" && btn.id !== "toggleMusic") {
+      btn.style.display = "none";
+    }
+  });
+}
 
 function hideButtonsClans() {
 
@@ -131,76 +144,68 @@ function triggerDiveEffect(callback) {
 }
 
 function goBack() {
-  // Supprime l'action actuelle
+    //  clearAllContent()
+     
+  console.log("Retour demandé");
+  console.log("Pile actuelle :", historyStack.map(fn => fn.name));
+  
+ 
+  cancelLoading = true;
+  stopJonin = true;
+   
+  
+
   historyStack.pop();
+  const previousAction = historyStack[historyStack.length - 1];
 
-  cancelLoading = true; // 🔥 Stoppe tout chargement en cours
-  stopJonin = true;     // ← si tu l’utilises ailleurs
-  
-  const backButton = document.getElementById("backButton");
-backButton.classList.remove("show");
-
-// setTimeout(() => {
-//   // Masque seulement si on revient à l'accueil
-//   if (!hasEnteredSubPage) {
-//     backButton.classList.add("hidden");
-//   }
-// }, 0);
-
-// // On revient à l'accueil, donc on réinitialise
-// hasEnteredSubPage = false;
-
-
-
-  // Nettoyage AVANT d'afficher la page précédente
-  clearAllContent();
-  
-  // Si la pile est vide, retourne à l'accueil
-  if (historyStack.length === 0) {
-    resetToHome()
-
+  if (!previousAction) {
+    resetToHome();
+    return;
   }
 
-  // Récupère la fonction précédente
-  const previousAction = historyStack[historyStack.length - 1];
-    // Appelle la fonction précédente
+  clearAllContent();
   previousAction();
-}
 
+  const backButton = document.getElementById("backButton");
+  if (historyStack.length <= 1) {
+    backButton.classList.add("hidden");
+    backButton.classList.remove("show");
+  } else {
+    backButton.classList.remove("hidden");
+    setTimeout(() => backButton.classList.add("show"), 10);
+  }
+}
 function resetToHome() {
   clearAllContent();
   showKonoha();
-  
+
   const backButton = document.getElementById("backButton");
   backButton.classList.remove("show");
   backButton.classList.add("hidden");
+
+   historyStack.length = 0;
+  historyStack.push(showKonoha);
 }
 
 
 
-function clearAllContent() {
-  divContainer.innerHTML = "";
-  famillyContainer.innerHTML = "";
-  infoContainer.innerHTML = "";
-
-  document.querySelectorAll("button").forEach(btn => {
-    if (btn.id !== "backButton" && btn.id !== "konoha") {
-      btn.style.display = "none";
-    }
-  });
-}
 
 
 
 
 function showKonoha() {
-     clearAllContent()
+    //  clearAllContent()
+     
       
       document.body.style.backgroundImage ="url('images/fond2.jpg')"
      konohaButton.style.display = "none";
     hierarchyButton.style.display = "inline-block";
     clansButton.style.display = "inline-block";     
       document.body.style.backgroundSize = "cover";
+
+      const backButton = document.getElementById("backButton");
+  backButton.classList.add("hidden");
+  backButton.classList.remove("show");
        
 }
 
@@ -220,7 +225,7 @@ function hierarchy() {
 
  document.getElementById("backButton").classList.remove("hidden");
 
- hasEnteredSubPage = true;
+//  hasEnteredSubPage = true;
 const backButton = document.getElementById("backButton");
 backButton.classList.remove("hidden");
 setTimeout(() => backButton.classList.add("show"), 10);
@@ -231,10 +236,10 @@ setTimeout(() => backButton.classList.add("show"), 10);
 
 
 function clans() {
-     clearAllContent()
-     clansButton.onclick = function () {
-  triggerDiveEffect(clans);
-};
+    //  clearAllContent()
+//      clansButton.onclick = function () {
+//   triggerDiveEffect(clans);
+// };
 
 
     hierarchyButton.style.display = "none";
@@ -251,49 +256,75 @@ function clans() {
     akimichiButton.style.display = "inline-block";
     kuramaButton.style.display = "inline-block";
 
-document.getElementById("backButton").classList.remove("hidden");
-
+// document.getElementById("backButton").classList.remove("hidden");
+const backButton = document.getElementById("backButton");
+  backButton.classList.remove("hidden");
+  setTimeout(() => backButton.classList.add("show"), 10);
 
 };
 
 function createDescription(element) {
+
+   imgButton.innerHTML = "";
+   divContainer.innerHTML = "";
+   famillyContainer.innerHTML = "";
+   infoContainer.innerHTML = "";
+   stopJonin = true;
+
     clearAllContent()
-    stopJonin = true;
-     divContainer.innerHTML = "";
-     
+
+      const cardChara = document.createElement("div"); // ← créer une nouvelle carte à chaque fois !
+      cardChara.classList.add("cardChara");
+      divContainer.appendChild(cardChara)
 
 
                     const charaDes = document.createElement("h1");
-                    divContainer.appendChild(charaDes);
+                    cardChara.appendChild(charaDes);
                     charaDes.innerHTML = element.name;
+                    charaDes.classList.add("title")
 
                     const charaImg = document.createElement("img");
-                    divContainer.appendChild(charaImg);
-                    charaImg.src = element.images[0];
+                    cardChara.appendChild(charaImg);
+                    if (element.name === "Jiraiya") {
+                    charaImg.src = "images/Jiraiya.PNG";
+                    charaImg.width = 150;
+                } else  if(element.name === "Himawari Uzumaki") {
+                    charaImg.src = "images/himawari.png";
+                    charaImg.width = 150;
+                }
+                    else{ 
+                      charaImg.src = element.images[0];
                     charaImg.width = 200;
+                  }
+                    
 
                     
                     for (let i in element.family){
                             const family = document.createElement("li");
-                            famillyContainer.appendChild(family);
+                            cardChara.appendChild(family);
+                            family.classList.add("description")
                             family.innerHTML = ` ${i} : ${element.family[i]}`;
                     }
                     
                     const bloodType = document.createElement("li");
-                    infoContainer.appendChild(bloodType);
+                    cardChara.appendChild(bloodType);
                     bloodType.innerHTML = ` Blood Type : ${element.personal.bloodType}`;
+                    bloodType.classList.add("description")
 
                     const ninjaId = document.createElement("li");
-                    infoContainer.appendChild(ninjaId);
+                    cardChara.appendChild(ninjaId);
                     ninjaId.innerHTML = ` Ninja Registration : ${element.rank.ninjaRegistration}`;
+                    ninjaId.classList.add("description")
 
                      const firstTime = document.createElement("li");
-                    infoContainer.appendChild(firstTime);
+                    cardChara.appendChild(firstTime);
                     firstTime.innerHTML = `First appearance on paper  : ${element.debut.manga}`;
+                    firstTime.classList.add("description")
 
                     const firstTimeTv = document.createElement("li");
-                    infoContainer.appendChild(firstTimeTv);
+                    cardChara.appendChild(firstTimeTv);
                     firstTimeTv.innerHTML = `First appearance on screen : ${element.debut.anime}`;
+                    firstTimeTv.classList.add("description")
 
 
                     
@@ -313,3 +344,16 @@ function changeStyleButton(){
                 });
 }
 
+
+function toggleMusic() {
+  const audio = document.getElementById("musique");
+  const button = document.getElementById("toggleMusic");
+
+  if (audio.paused) {
+    audio.play();
+    button.textContent = "🔊"; // Son activé
+  } else {
+    audio.pause();
+    button.textContent = "🔇"; // Son coupé
+  }
+}

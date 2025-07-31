@@ -1,69 +1,77 @@
-html,
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+ height: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-image: url("images/fond.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-bottom: 100px;
+}
+
+#main {
+  flex-grow: 1;
+  width: 100%;
+  min-height: 100vh;
 }
 
 @font-face {
-    font-family: 'NarutoFont';
-    src: url('fonts/njnaruto.ttf') format('truetype');
+  font-family: 'NarutoFont';
+  src: url('fonts/njnaruto.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'OnepieceFont';
-    src: url('fonts/onepiece.ttf') format('truetype');
+  font-family: 'OnepieceFont';
+  src: url('fonts/onepiece.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Ace2';
-    src: url('fonts/animeace2_bld.ttf') format('truetype');
+  font-family: 'Ace2';
+  src: url('fonts/animeace2_bld.ttf') format('truetype');
 }
 
 .decoButton {
-    font-family: 'NarutoFont', sans-serif;
-    font-size: 2em;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    background: none;
-    padding: 5px 10px;
+  font-family: 'NarutoFont', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 5px 10px;
 }
 
 .decoButton span {
-    /* display: inline-block; */
-    background: linear-gradient(90deg, #FFD700, #FF4500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #013A63;
-    /* Contour propre */
-    background-clip: text;
+  background: linear-gradient(90deg, #FFD700, #FF4500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #013A63;
+  background-clip: text;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
-body {
-    background-image: url("images/fond.jpeg");
-    background-size: cover;
-    /* Agrandit l'image pour couvrir tout l'écran */
-    background-repeat: no-repeat;
-    /* Évite la répétition */
-    background-position: center;
-    /* Centre l’image */
-    margin: 0;
-    /* Évite les marges blanches par défaut */
-    min-height: 100vh;
-    /* Force le body à prendre toute la hauteur de la fenêtre */
-}
 #overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background:rgb(191, 191, 249); /* Ou un dégradé léger */
+  background: rgb(191, 191, 249);
   z-index: 9999;
   opacity: 0;
   pointer-events: none;
@@ -71,78 +79,139 @@ body {
   transition: opacity 1.2s ease, backdrop-filter 1.2s ease;
 }
 
-/* Quand actif, déclenche le flou et l'opacité */
 #overlay.active {
   opacity: 1;
   backdrop-filter: blur(15px);
 }
-#konoha {
-    position: fixed;
-    top: 50%;
-    /* centre verticalement */
-    right: 5em;
-    /* espace depuis le bord droit */
-    transform: translateY(-50%);
-    /* corrige l’alignement vertical */
-    z-index: auto;
-      
-      /* padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 50px;
-      background: white;
-      color: #333;
-      cursor: pointer;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
-      transition: all 0.6s ease;
-      position: relative;
-      z-index: 2; */
-    }
 
-.center {
-    display: none;
-    /* masqué au départ */
-    justify-content: center;
-    /* centre horizontalement */
-    align-items: center;
-    /* centre verticalement */
-    width: 100vw;
-    gap: 20px;
-    /* espace entre les boutons */
-    flex-wrap: wrap;
-    /* si jamais tu veux que ça passe à la ligne sur petits écrans */
+#konoha {
+  position: fixed;
+  top: 50%;
+  right: 5em;
+  transform: translateY(-50%);
+  z-index: 1000;
 }
+
+.center, .background {
+
+  
+  justify-content: center;
+  align-items: center;
+       
+  
+} 
 
 #choice {
-    display: flex;
-    justify-content: center;
-    /* centre horizontalement */
-    align-items: center;
-    /* centre verticalement */
-    height: 100vh;
-    /* prend toute la hauteur de la fenêtre */
-    width: 100vw;
-}
-
-p,
-h1 {
-    color: white;
+  display: flex;              /* Manquant ! */
+  flex-direction: column;
+  justify-content: center;   /* Centrage vertical */
+  align-items: center;       /* Centrage horizontal */
+  width: 100%;
+  min-height: 100vh;         /* Ajoute ça pour que le centrage vertical fonctionne sur toute la page */
+  padding: 40px 20px;
+  gap: 20px;
 }
 
 .title {
-    font-family: 'Ace2';  
-    background: linear-gradient(90deg, #FFD700, #FF4500);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2em;
-    -webkit-text-stroke: 1px #013A63;
+  font-family: 'Ace2';
+  background: #FFD700;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #013A63;
+  font-size: 2em;
 }
 
 .description {
-    font-family: 'Ace2';  
-    background: linear-gradient(90deg, #FF4500, #FFD700);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 20px;
-    -webkit-text-stroke: 1px black;
+  font-family: 'Ace2';
+  background: linear-gradient(90deg, #FF4500, #FFD700);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px black;
+  font-size: 20px;
+}
+
+/* Image container */
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 30px;
+  max-width: 300px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Image inside buttons/cards */
+.imgButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  padding: 20px;
+}
+
+.imgButton img,
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+
+li {
+  color : white;
+}
+.cardChara
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 30px;
+  /* max-width: 300px; */
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+ }
+ img{
+  border-radius: 20px;
+ }
+#toggleMusic {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 22px;
+  padding: 12px 14px;
+  border: 2px solid #2c2c2c;
+  background-image: linear-gradient(145deg, #FF4500, #FFD700);
+  border-radius: 8px;
+  font-family: 'NinjaNaruto', sans-serif;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+#toggleMusic:hover {
+  background-image: linear-gradient(145deg, #e8caa4, #f4e2d8);
+  transform: scale(1.05);
 }
