@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script defer src="script.js"></script>
+    <script defer src="clans/kurama.js"></script>
+    <script defer src="clans/akimichi.js"></script>
+    <script defer src="clans/nara.js"></script>
+    <script defer src="clans/yamanaka.js"></script>
+    <script defer src="clans/inuzuka.js"></script>
+    <script defer src="clans/aburame.js"></script>
+    <script defer src="clans/sarutobi.js"></script>
+    <script defer src="clans/senju.js"></script>
+    <script defer src="clans/uchiha.js"></script>
+    <script defer src="clans/hyuga.js"></script>
+    <script defer src="clans/uzumaki.js"></script>
+
+    <script defer src="hierarchy/academy_student.js"></script>
+    <script defer src="hierarchy/genin.js"></script>
+    <script defer src="hierarchy/chunin.js"></script>
+    <script defer src="hierarchy/jonin.js"></script>
+    <script defer src="hierarchy/anbu.js"></script>
+    <script defer src="hierarchy/kage.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Naruto</title>
+
+</head>
+
+<body>
+
+    <audio id="musique" autoplay loop>
+  <source src="audio/NarutoOpening.mp3" type="audio/mp3">
+  Ton navigateur ne supporte pas l’audio HTML5.
+</audio>
+
+
+    <button id="toggleMusic" onclick="toggleMusic()">🔊</button>
+    <button id="backButton" class="hidden decoButton" onclick="goBack()">← Retour</button>
+
+    <div id="main">
+  <div id="overlay"></div>
+
+<button id="konoha" class="decoButton" onclick="triggerDiveEffect(showKonoha)">Konoha</button>
+<div id="back"></div>
+
+
+ 
+   <div id="choice"> 
+    <button id="hierarchy" class="hidden center decoButton " onclick="hierarchy()">Hierarchy</button>
+    <button id="clans" class="hidden center decoButton " onclick="clans()">Clans</button>
+   
+
+
+
+<div class="container">
+
+    <button id="kage" class="hidden decoButton background" onclick="triggerDiveEffect(kage)">Kage</button>
+    <button id="anbu" class="hidden decoButton background" onclick="anbu()">Anbu</button>
+    <button id="jonin" class="hidden decoButton background" onclick="jonin()">Jōnin</button>
+    <button id="chunin" class="hidden decoButton background" onclick="chunin()">Chūnin</button>
+    <button id="genin" class="hidden decoButton background" onclick="genin()">Genin</button>
+    <button id="academyStudent" class="hidden decoButton background" onclick="academyStudent()">Academy Student</button>
+</div>
+
+<div class="container-clans">
+    <button id="uzumaki" class="hidden decoButton background" onclick="uzumaki()">Uzumaki</button>
+    <button id="hyuga" class="hidden decoButton background" onclick="hyuga()">Hyuga</button>
+    <button id="uchiha" class="hidden decoButton background" onclick="uchiha()">Uchiha</button>
+    <button id="senju" class="hidden decoButton background" onclick="senju()">Senju</button>
+    <button id="sarutobi" class="hidden decoButton background" onclick="sarutobi()">Sarutobi</button>
+
+    <button id="aburame" class="hidden decoButton background" onclick="aburame()">Aburame</button>
+    <button id="inuzuka" class="hidden decoButton background" onclick="inuzuka()">Inuzuka</button>
+    <button id="yamanaka" class="hidden decoButton background" onclick="yamanaka()">Yamanaka</button>
+    <button id="nara" class="hidden decoButton background" onclick="nara()">Nara</button>
+    <button id="akimichi" class="hidden decoButton background" onclick="akimichi()">Akimichi</button>
+    <button id="kurama" class="hidden decoButton background" onclick="kurama()">Kurama</button>
+
+</div>
+
+
+        
+
+     <div class="imgButton"></div>
+    <div id="divContainer"></div>
+
+    <ul id="famillyContainer"></ul>
+    <ul id="infoContainer"></ul>
+    
+    </div>
+   </div>
+   
+    
+</body>
+
+</html>
